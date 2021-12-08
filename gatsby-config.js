@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Wei Hung 的筆記`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Wei Hung`,
+      summary: `who is thinking.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    description: `A blog for Wei Hung, a learner.`,
+    siteUrl: `https://wayneh.tw/notes`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `wayne930242`,
     },
   },
   plugins: [
