@@ -30,6 +30,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         ) {
           nodes {
             id
+            frontmatter {
+              description
+              title
+            }
             fields {
               slug
             }
@@ -78,9 +82,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       const post = posts[i];
       const issueOptions = Object.assign({}, gitalkConfig, {
         id: post.id,
-        title: post.title,
-        description: post.description,
-        url: post.url,
+        title: post.frontmatter.title,
+        description: post.frontmatter.description,
+        url: process.env.BASE_URL,
       }, {
         personalToken: gitalkCreateIssueToken
       })
