@@ -1,5 +1,18 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const { GitalkPluginHelper } = require('gatsby-plugin-gitalk');
+const clientID = process.env.GITALK_CLIENT_ID
+const clientSecret = process.env.GITALK_SECRET
+const owner = process.env.GITALK_OWNER
+const repo = process.env.GITALK_REPO
+
+const gitalkConfig = {
+  clientID,
+  clientSecret,
+  repo,
+  owner,
+  admin: [owner],
+}
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -55,6 +68,26 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         },
       })
     })
+  }
+
+  const gitalkCreateIssueToken = process.env.GITALK_CREATE_ISSUE_TOKEN
+  // Due to github api request limit, it is recommended to  create issue for recently added articles
+  // select articles from table order by createdate desc limit 10
+  if (gitalkOpts && gitalkCreateIssueToken) {
+    for (let i = 0; i < posts.length; i++) {
+      const post = posts[i];
+      const issueOptions = Object.assign({}, gitalkConfig, {
+        id: '{post.id}',
+        title: '{post.title}',
+        description: '{post.description}',
+        url: '{post.url}',
+      }, {
+        personalToken: gitalkCreateIssueToken
+      })
+      // this function will try create new issue when it doesnt exist;
+      await GitalkPluginHelper.createIssue(issueOptions)
+      reporter.info(`create issue success`)
+    }
   }
 }
 
