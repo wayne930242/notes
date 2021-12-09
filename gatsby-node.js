@@ -75,8 +75,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   const gitalkCreateIssueToken = process.env.GITALK_CREATE_ISSUE_TOKEN
-  // Due to github api request limit, it is recommended to  create issue for recently added articles
-  // select articles from table order by createdate desc limit 10
   if (gitalkConfig && gitalkCreateIssueToken) {
     for (let i = 0; i < Math.min(10, posts.length); i++) {
       const post = posts[i];
@@ -88,7 +86,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }, {
         personalToken: gitalkCreateIssueToken
       })
-      // this function will try create new issue when it doesnt exist;
       await GitalkPluginHelper.createIssue(issueOptions)
       reporter.info(`create issue success`)
     }
