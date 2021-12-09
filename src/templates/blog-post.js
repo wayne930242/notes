@@ -31,11 +31,9 @@ const BlogPostTemplate = ({ data, location }) => {
           itemProp="articleBody"
         />
         <hr />
-        <div>
-          <MyGitTalk post={post} />
-        </div>
         <footer>
           <Bio />
+          <MyGitTalk post={post} />
         </footer>
       </article>
       <nav className="blog-post-nav">
