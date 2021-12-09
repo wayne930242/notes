@@ -52,6 +52,23 @@ const BlogPostTemplate = ({ data, location }) => {
             )}
           </li>
           <li>
+            {post.fields.category && (
+              <Link to={`/category/${post.fields.category}`}>
+                {post.fields.category}
+              </Link>
+            )}
+          </li>
+          {post.fields.tags && (
+            post.fields.tags.map(tag => (
+              <Link
+                to={`/tags/${tag}`}
+                className="badge badge-primary p-2 m-1"
+              >
+                tag: {tag}
+              </Link>
+            ))
+          )}
+          <li>
             {next && (
               <Link to={next.fields.slug} rel="next">
                 {next.frontmatter.title} →
@@ -85,6 +102,10 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+      }
+      fields {
+        category
+        tags
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
