@@ -1,3 +1,5 @@
+const gitalkConfig = require('./gitalkConfig.js')
+
 module.exports = {
   siteMetadata: {
     title: `Wei Hung 的筆記`,
@@ -139,6 +141,12 @@ module.exports = {
       options: {
         templatePath: `${__dirname}/src/templates/tag.js`,
       },
+    },
+    {
+      resolve: `gatsby-plugin-gitalk`,
+      options: {
+        config: gitalkConfig
+      }
     },
   ],
 }
