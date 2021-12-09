@@ -1,5 +1,5 @@
 require("dotenv").config({
-  path: `.env`,
+  path: `.env.${process.env.NODE_ENV}`,
 })
 
 const clientID = process.env.GITALK_CLIENT_ID
