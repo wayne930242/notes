@@ -1,3 +1,4 @@
+import * as React from "react"
 import Gitalk from 'gatsby-plugin-gitalk'
 import '@suziwen/gitalk/dist/gitalk.css'
 

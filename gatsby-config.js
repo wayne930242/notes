@@ -1,4 +1,19 @@
-const gitalkConfig = require('./gitalkConfig.js')
+require("dotenv").config({
+  path: `.env`,
+})
+
+const clientID = process.env.GITALK_CLIENT_ID
+const clientSecret = process.env.GITALK_SECRET
+const owner = process.env.GITALK_OWNER
+const repo = process.env.GITALK_REPO
+
+const gitalkConfig = {
+  clientID,
+  clientSecret,
+  repo,
+  owner,
+  admin: [owner],
+}
 
 module.exports = {
   siteMetadata: {
