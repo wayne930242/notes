@@ -78,7 +78,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Due to github api request limit, it is recommended to  create issue for recently added articles
   // select articles from table order by createdate desc limit 10
   if (gitalkConfig && gitalkCreateIssueToken) {
-    for (let i = 0; i < 10; i++) {
+    console.log(posts)
+    for (let i = 0; i < Math.min(10, posts.length); i++) {
       const post = posts[i];
       const issueOptions = Object.assign({}, gitalkConfig, {
         id: post.id,
