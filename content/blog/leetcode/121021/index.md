@@ -107,7 +107,7 @@ var mergeTwoLists = function(list1, list2) {
 
 (*) f(n - 1) - f(n - 3) - f(n - 2) = 2 X
 
-加總：f(n) = 2 f(n - 1) + 3 f(n - 3)
+加總：f(n) = 2 f(n - 1) + f(n - 3)
 */
 
 let cheat = new Map([
