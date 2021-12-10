@@ -105,7 +105,7 @@ var mergeTwoLists = function(list1, list2) {
   b. 如果是 [2, 0]，它和 f(n - 1) 的 4 相同，叫它 X。
 5a. 5b. 如果是 [2, 1]，和 4 一樣。
 
-(*) f(n - 1) - f(n - 3) + f(n - 2) = 2 X
+(*) f(n - 1) - f(n - 3) - f(n - 2) = 2 X
 
 加總：f(n) = 2 f(n - 1) + 3 f(n - 3)
 */
@@ -114,9 +114,9 @@ let cheat = new Map([
   [1, 1],
   [2, 2],
   [3, 5],
-])
+]) // 用來抄答案
 
-const modulo = 1e9+7
+const modulo = 1e9 + 7
 
 var numTilings = function(n) {	
   
