@@ -61,7 +61,6 @@ var isValid = function(s) {
 ```js
 var mergeTwoLists = function(list1, list2) {
   let result = []
-  let waiting = null
   
   let head1 = list1
   let head2 = list2
