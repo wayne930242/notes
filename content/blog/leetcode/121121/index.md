@@ -8,8 +8,8 @@ tags:
 ---
 
 ## Nth Magical Number
-* 題號：878
-* [連結](https://leetcode.com/problems/nth-magical-number/)
+
+[題號：878](https://leetcode.com/problems/nth-magical-number/)
 
 ```js
 const modulo = 1e9 + 7

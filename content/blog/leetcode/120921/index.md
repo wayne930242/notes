@@ -8,8 +8,8 @@ tags:
 ---
 
 ## Roman to Integer
-* 題號：13
-* [連結](https://leetcode.com/problems/roman-to-integer/)
+
+[題號：13](https://leetcode.com/problems/roman-to-integer/)
 
 ```js
 const mapping = {
@@ -37,8 +37,8 @@ var romanToInt = function(s) {
 ```
 
 ## Longest Common Prefix
-* 題號：14
-* [連結](https://leetcode.com/problems/longest-common-prefix/)
+
+[題號：14](https://leetcode.com/problems/longest-common-prefix/)
 
 ```js
 var longestCommonPrefix = function(strs) {
@@ -61,8 +61,8 @@ var longestCommonPrefix = function(strs) {
 ```
 
 ## Jump Game III
-* 題號：1306
-* [連結](https://leetcode.com/problems/jump-game-iii/)
+
+[題號：1306](https://leetcode.com/problems/jump-game-iii/)
 
 ```js
 var canReach = function(arr, start) {

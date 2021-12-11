@@ -8,8 +8,8 @@ tags:
 ---
 
 ## Valid Parentheses
-* 題號：20
-* [連結](https://leetcode.com/problems/valid-parentheses/)
+
+[題號：20](https://leetcode.com/problems/valid-parentheses/)
 
 ```js
 // 從第一個開始找
@@ -55,8 +55,8 @@ var isValid = function(s) {
 ```
 
 ## Merge Two Sorted Lists
-* 題號：21
-* [連結](https://leetcode.com/problems/merge-two-sorted-lists/)
+
+[題號：21](https://leetcode.com/problems/merge-two-sorted-lists/)
 
 ```js
 var mergeTwoLists = function(list1, list2) {
@@ -90,8 +90,8 @@ var mergeTwoLists = function(list1, list2) {
 ```
 
 ## Domino and Tromino Tiling
-* 題號：790
-* [連結](https://leetcode.com/problems/domino-and-tromino-tiling/)
+
+[題號：790](https://leetcode.com/problems/domino-and-tromino-tiling/)
 
 ```js
 /*
