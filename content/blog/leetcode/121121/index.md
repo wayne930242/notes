@@ -41,7 +41,7 @@ var nthMagicalNumber = function(n, a, b) {
   }
 
   // 下面用迴圈來排列 m 和 M 的位置。
-  // 可能有數學更好的寫法。但 O(n) 計算目前看起來可以接受。 
+  // 可能有數學更好的寫法。但 O(A+B) 計算目前看起來可以接受。 
   let result = 0
   let mi = 0
   let Mi = 0
