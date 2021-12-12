@@ -32,8 +32,7 @@ var canPartition = function(nums) {
       if(!memo.has(value)) memo.add(value)
     })
     
-    testFunc(i + 1)
-    return memo.has(0)
+    return testFunc(i + 1)
   }
   
   return testFunc(0)
