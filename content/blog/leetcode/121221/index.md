@@ -26,7 +26,7 @@ var canPartition = function(nums) {
     
     let newMemo = []
     memo.forEach((key) => {
-      if(key - nums[i] >= 0 || memo.has(-1)) return newMemo.push(key - nums[i])
+      if(key - nums[i] >= 0) return newMemo.push(key - nums[i])
     })
     newMemo.forEach((value) => {
       if(!memo.has(value)) memo.add(value)
