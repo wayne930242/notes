@@ -9,7 +9,7 @@ tags:
 
 ## Partition Equal Subset Sum
 
-[連結](https://leetcode.com/problems/partition-equal-subset-sum/)
+[題號：416](https://leetcode.com/problems/partition-equal-subset-sum/)
 
 ```js
 var canPartition = function(nums) {
