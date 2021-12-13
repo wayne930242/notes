@@ -36,8 +36,8 @@ var removeElement = function(nums, val) {
 ```js
 var maxPower = function(s) {
   let result = 0
-
-  for (let i = 0, r = 1 ; i < s.length ; i++){
+  const l = s.length
+  for (var i = 0, r = 1, current = 0 ; i < l ; i++){
     if(s[i] === s[i+1]) {
       r++
     } else {
