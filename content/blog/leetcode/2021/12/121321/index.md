@@ -27,7 +27,7 @@ var removeElement = function(nums, val) {
   return nums.splice(0, nums.length, 
     ...nums.filter((value) => value !== val)
   ).length
-};
+}
 ```
 
 ## Consecutive Characters
@@ -37,17 +37,16 @@ var removeElement = function(nums, val) {
 var maxPower = function(s) {
   let result = 0
 
-  for (let i = 0, r = 1, current = null ; i < s.length ; i++){
-    if(s[i] === current) {
+  for (let i = 0, r = 1 ; i <= s.length ; i++){
+    result = Math.max(result, r)
+    if(s[i] === s[i+1]) {
       r++
-      result = Math.max(result, r)
     } else {
-      result = Math.max(result, r)
       r = 1
     }
     current = s[i]
   }
   
   return result
-};
+}
 ```
