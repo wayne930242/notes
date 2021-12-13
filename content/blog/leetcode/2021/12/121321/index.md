@@ -37,12 +37,11 @@ var removeElement = function(nums, val) {
 var maxPower = function(s) {
   let result = 0
 
-  // 注意 i 的範圍：讓迴圈多跑一次，確定有機會把 r 的値回傳到 result。
-  for (let i = 0, r = 1 ; i <= s.length ; i++){
+  for (let i = 0, r = 1 ; i < s.length ; i++){
     if(s[i] === s[i+1]) {
       r++
     } else {
-      result = Math.max(result, r)
+      result = Math.max(result, r) // 在這邊才回傳，增加效率。
       r = 1
     }
     current = s[i]
