@@ -30,9 +30,24 @@ var removeElement = function(nums, val) {
 };
 ```
 
-## 
-[題號：]()
+## Consecutive Characters
+[題號：1446](https://leetcode.com/problems/consecutive-characters/)
 
 ```js
+var maxPower = function(s) {
+  let result = 0
 
+  for (let i = 0, r = 1, current = null ; i < s.length ; i++){
+    if(s[i] === current) {
+      r++
+      result = Math.max(result, r)
+    } else {
+      result = Math.max(result, r)
+      r = 1
+    }
+    current = s[i]
+  }
+  
+  return result
+};
 ```
