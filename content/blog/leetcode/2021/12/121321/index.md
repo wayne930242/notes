@@ -41,7 +41,7 @@ var maxPower = function(s) {
     if(s[i] === s[i+1]) {
       r++
     } else {
-      result = Math.max(result, r) // 在這邊才回傳，增加效率。
+      result = Math.max(result, r)
       r = 1
     }
     current = s[i]
