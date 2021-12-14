@@ -1,6 +1,6 @@
 ---
-title: Leetcode 練習：2021-12-10 
-date: "2021"
+title: Leetcode 練習：2021-12-14
+date: "2021-12-14"
 category: Codeing
 tags:
  - js
