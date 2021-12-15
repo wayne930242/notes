@@ -41,7 +41,7 @@ var lengthOfLastWord = function(s) {
 [題號：147](https://leetcode.com/problems/insertion-sort-list/submissions/)
 
 ```js
-// 題目要求的方式有點囉唆，我知道這有點作弊，但...。
+//不是標準的寫法。 
 var insertionSortList = function(head) {
   let arr = []
   while(head) {
