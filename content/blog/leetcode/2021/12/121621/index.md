@@ -16,8 +16,8 @@ var plusOne = function(digits) {
 }
 ```
 
-## 
-[題號：]()
+## Add Binary
+[題號：67](https://leetcode.com/problems/add-binary/)
 
 ```js
 var addBinary = function(a, b) {
