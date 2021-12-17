@@ -33,7 +33,6 @@ var mySqrt = function (x) {
 
 ```js
 var climbStairs = function (n) {
-  if (n <= 3) return n
   const map = new Map([
     [1, 1],
     [2, 2],
