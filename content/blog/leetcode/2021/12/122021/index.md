@@ -12,12 +12,12 @@ tags:
 
 ```js
 var deleteDuplicates = function(head) {
-  let current = head
-  while (current) {
-    if(!result.has(current.val)) result.add(current.val)
-    current = current.next
+  let result = head
+  while (head && head.next) {
+    if(head.next.val === head.val) head.next = head.next.next
+    else head = head.next
   }
-  return [...result].reduceRight((next,val) => ({next, val}), null)
+  return result
 }
 ```
 
