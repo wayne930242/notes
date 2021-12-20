@@ -72,3 +72,23 @@ const checkAB = (security, index, time) => {
   return true
 }
 ```
+
+## Minimum Absolute Difference
+[題號：1200](https://leetcode.com/problems/minimum-absolute-difference/description/)
+
+```js
+var minimumAbsDifference = function(arr) {
+  let mn = Infinity
+  const result = []
+  arr = arr.sort((a,b) => a-b)
+  for (var i = 0; i < arr.length; i++){
+    if (arr[i+1] - arr[i] <= mn) {
+      mn = arr[i+1] - arr[i]
+      if (!result[mn]) { result[mn] = [[arr[i], arr[i+1]]] }
+      else { result[mn].push([arr[i],arr[i+1]]) }
+    } 
+  }
+
+  return result[mn]
+}
+```
