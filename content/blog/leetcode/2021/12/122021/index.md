@@ -13,11 +13,11 @@ tags:
 ```js
 var deleteDuplicates = function(head) {
   let current = head
-  while (current && current.next) {
-    if(current.next.val === current.val) current.next = current.next.next
+  while (current) {
+    if(!result.has(current.val)) result.add(current.val)
     current = current.next
   }
-  return current
+  return [...result].reduceRight((next,val) => ({next, val}), null)
 }
 ```
 
