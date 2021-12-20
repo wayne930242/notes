@@ -62,11 +62,9 @@ const checkAB = (security, index, time) => {
     index - time < 0
   ) return false
   for (var i = index - time; i < index; i++) {
-    console.log(i, security[i],security[i + 1])
     if (security[i] < security[i + 1]) return false
   }
   for (var i = index; i < index + time; i++) {
-    console.log(i, security[i],security[i + 1])
     if (security[i] > security[i + 1]) return false
   }
   return true
