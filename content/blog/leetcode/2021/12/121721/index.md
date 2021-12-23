@@ -45,11 +45,3 @@ var climbStairs = function (n) {
   }
   return step(n)
 }
-```
-## Maximal Square
-
-[題號：]()
-
-```js
-
-```
