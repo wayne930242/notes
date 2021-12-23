@@ -52,25 +52,25 @@ var findOrder = function(numCourses, prerequisites) {
 
   for (const [a, b] of prerequisites) {
     graph[a] = [...graph[a], b]
-		indegree[b] += 1
+    indegree[b] += 1
   }
   
   // 以下進行拓樸排序：
   const queue = []
   // 用不需要先修課的節點加入來初始化佇列：
   for (const i in indegree) {
-		if (indegree[i] === 0) queue.push(i)
-	}
+    if (indegree[i] === 0) queue.push(i)
+  }
   while(queue.length){
-		const node = queue.shift()
-		result.unshift(node)
-		for (const n of graph[node]){
-			indegree[n] -= 1
-			if (indegree[n] === 0) queue.push(n)
-		}
-	}
+    const node = queue.shift()
+    result.unshift(node)
+    for (const n of graph[node]){
+      indegree[n] -= 1
+      if (indegree[n] === 0) queue.push(n)
+    }
+  }
 
   if (!indegree.every(i => i===0)) return [] // 沒辦法成功做出排序。
-	return result 
+  return result 
 }
 ```
