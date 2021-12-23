@@ -76,7 +76,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const gitalkCreateIssueToken = process.env.GITALK_CREATE_ISSUE_TOKEN
   if (gitalkConfig && gitalkCreateIssueToken) {
-    for (let i = 0; i < posts.length; i++) {
+    for (var i = Math.max(0, posts.length - 9 ); i < posts.length; i++) {
       const post = posts[i];
       const issueOptions = Object.assign({}, gitalkConfig, {
         id: post.id,
