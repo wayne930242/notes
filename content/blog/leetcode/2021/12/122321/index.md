@@ -45,7 +45,7 @@ var isBalanced = function(root) {
 var findOrder = function(numCourses, prerequisites) {
   const indegree = new Array(numCourses).fill(0)  
   const graph = new Array(numCourses).fill([]) 
-  // graph 的每個點都放從 a 點 out 到 b 的邊。
+  // graph 的每個點都放從從 a 點 out 的點 b 們。
   // indegree 放每個 b 點的 in-degree。
   
   const result = []
