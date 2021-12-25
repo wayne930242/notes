@@ -19,7 +19,7 @@ var calculate = function(s) {
   let sign = '+'
   for (var i = 0; i < s.length; i++) {
     if (s[i] === ' ') continue
-    if (s[i].match(/[0-9]/)) num = 10 * num + Number(s[i])
+    if (!isNaN(s[i])) num = 10 * num + Number(s[i])
     else {
       if (sign === "+") {
         wait.push(num)
