@@ -20,6 +20,9 @@ var kClosest = function(points, k) {
 
 ```js
 var kClosest = function(points, k) {
+  if (points.length === 0) return [] 
+  if (points.length === k) return points
+
   let start = 0
   let end = points.length - 1
   
@@ -40,11 +43,10 @@ var kClosest = function(points, k) {
         right--
       }
     }
+    
     swap(right, pivot, points)
-    if (right === k-1) {
-      points.length = k
-      return points
-    }
+    
+    if (right === k-1) return points.slice(0,k)
     if (right < k-1) start = right + 1
     else end = right - 1
   }
