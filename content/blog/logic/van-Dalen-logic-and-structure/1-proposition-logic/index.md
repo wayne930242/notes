@@ -7,11 +7,7 @@ tags:
  - reading
 ---
 
-- [1 命題與連接詞](#1-命題與連接詞)
-- [2 語義學](#2-語義學)
-- [3 命題邏輯的一些性質](#3-命題邏輯的一些性質)
-
-## 1 命題與連接詞
+## 1.1 命題與連接詞
 
 **〔定義 1.1.1 字母〕** 命題邏輯由以下字母構成：
 
@@ -80,7 +76,7 @@ tags:
 * 若 $\phi = \psi_1 \Box \psi_2$，則 $r(\phi) = max(\psi_1, \psi_2) + 1$，
 * 若 $\phi = \neg \psi$，則 $r(\phi) = r(\psi) + 1$。
 
-## 2 語義學
+## 1.2 語義學
 
 **〔定義 1.2.1 賦值（valuation）〕** $v: PROP \rightarrow \{0,1\}$ 是一個賦值，若：
 
@@ -122,7 +118,7 @@ tags:
 > 1. $\llbracket \phi_1 \leftrightarrow \phi_2 \rrbracket_v \leq \llbracket \psi[\phi_1 / p] \leftrightarrow \psi [ \phi_2/p] \rrbracket_v$。
 > 2. $\models (\phi_1 \leftrightarrow \phi_2) \rightarrow (\psi[\phi_1/p] \leftrightarrow \phi[\phi_2 / p])$。
 
-## 3 命題邏輯的一些性質
+## 1.3 命題邏輯的一些性質
 
 **〔定理 1.3.1〕** 以下命題為恆真句：
 
