@@ -188,16 +188,16 @@ Sheffer stroke：
 
 ---
 
-**〔定理 1.3.6〕** 對於任何一個由賦值所定義的 $n$ 列連接詞 $\$$，存在一個只包含 $p_1$、……、$p_n$、$\vee$ 和 $\neg$ 的命題 $\gamma$，使得 $\models \gamma \leftrightarrow \$(p_1, ..., p_n)$。
+**〔定理 1.3.6〕** 對於任何一個由賦值所定義的 $n$ 列連接詞 $\text{\textdollar}$，存在一個只包含 $p_1$、……、$p_n$、$\vee$ 和 $\neg$ 的命題 $\gamma$，使得 $\models \gamma \leftrightarrow \text{\textdollar}(p_1, ..., p_n)$。
 
-> 證明：透過歸納法。定義 $\$_1$ 與 $\$_2$ 使得
+> 證明：透過歸納法。定義 $\text{\textdollar}_1$ 與 $\text{\textdollar}_2$ 使得
 > 
-> * $\$_1(p_2,...,p_{n+1}) = \$(\bot, p_2, ..., p_{n+1})$ 且
-> * $\$_2(p_2,...,p_{n+1}) = \$(\top, p_2, ..., p_{n+1})$。
+> * $\text{\textdollar}_1(p_2,...,p_{n+1}) = \text{\textdollar}(\bot, p_2, ..., p_{n+1})$ 且
+> * $\text{\textdollar}_2(p_2,...,p_{n+1}) = \text{\textdollar}(\top, p_2, ..., p_{n+1})$。
 > 
-> 假設 $\models \$_i (p_2, ..., p_{n+1}) \leftrightarrow \sigma_i$。
+> 假設 $\models \text{\textdollar}_i (p_2, ..., p_{n+1}) \leftrightarrow \sigma_i$。
 > 
-> 將 $\gamma$ 定義為 $(p_1 \rightarrow \sigma_2) \wedge (\neg p_1 \rightarrow \sigma_1)$，並證明 $\models \$(p_1,... ,p_{n+1}) \leftrightarrow \gamma$。
+> 將 $\gamma$ 定義為 $(p_1 \rightarrow \sigma_2) \wedge (\neg p_1 \rightarrow \sigma_1)$，並證明 $\models \text{\textdollar}(p_1,... ,p_{n+1}) \leftrightarrow \gamma$。
 
 ---
 
