@@ -51,7 +51,7 @@ var getRow = function(rowIndex) {
 ## Number Complement
 [題號：476](https://leetcode.com/problems/number-complement/)
 
-令 $n = num$，$num$ 的最大位數為 b，欲求結果為 a，有 $n + a = 2^b - 1$ 的事實。
+令 $n = num$，$num$ 的最大位數為 $b$，欲求結果為 $a$，有 $n + a = 2^b - 1$ 的事實。
 
 ```js
 var findComplement = function(num) {
