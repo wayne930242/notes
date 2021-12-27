@@ -35,8 +35,7 @@ var generate = function(numRows) {
 var getRow = function(rowIndex) {
   if(rowIndex === 0) return [1]
   const arr = []
-  arr[0] = 1
-  arr[rowIndex] = 1
+  arr[0] = arr[rowIndex] = 1
   let l = 1
   const mid = Math.ceil(rowIndex / 2)
   while (l <= mid) {
