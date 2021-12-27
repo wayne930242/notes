@@ -107,13 +107,14 @@ tags:
 
 **〔定義 1.2.5 替代〕** $\phi [\psi / p_i]$，代表以 $\psi$ 替代在 $\phi$ 中出現的所有原子語句 $p_i$。
 
+> **說明**：可以更嚴謹地以遞迴定義。
+
 ---
 
 **〔定理 1.2.6 替代定理〕** 若 $\models \phi_1 \leftrightarrow \phi_2$，則 $\psi[\phi_1/p] \leftrightarrow \psi[\phi_2/p]$，$p$ 是一個原子語句。
-
-> **說明**：可以更嚴謹地以遞迴定義。
-> 
-> **性質〔引理 1.2.7〕**，可以由歸納法證明：
+ 
+> **性質〔引理 1.2.7〕**：
 > 
 > 1. $\llbracket \phi_1 \leftrightarrow \phi_2 \rrbracket_v \leq \llbracket \psi[\phi_1 / p] \leftrightarrow \psi [ \phi_2/p] \rrbracket_v$。
 > 2. $\models (\phi_1 \leftrightarrow \phi_2) \rightarrow (\psi[\phi_1/p] \leftrightarrow \phi[\phi_2 / p])$。
+
