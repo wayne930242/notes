@@ -57,3 +57,9 @@ var findComplement = function(num) {
   return 2 ** (bit) - 1 - num
 }
 ```
+
+```js
+var findComplement = function(num) {
+  return ~num & ((1 << num.toString(2).length) - 1)
+}
+```
