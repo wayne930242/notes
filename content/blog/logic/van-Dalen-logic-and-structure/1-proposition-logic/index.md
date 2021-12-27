@@ -194,12 +194,10 @@ Sheffer stroke： $\phi | \psi = \neg (\phi \wedge \psi)$
 
 **〔定義 1.3.7〕** 
 
-* $\bigwedge_{i \leq 0} \phi_i = \phi_0
-    \\
-    \bigwedge_{i \leq n+1} \phi_i = \bigwedge_{i \leq n} \phi_i \wedge \phi_{n+1}$
-* $\bigvee_{i \leq 0} \phi_i = \phi_0
-    \\
-    \bigvee_{i \leq n+1} \phi_i = \bigvee_{i \leq n} \phi_i \vee \phi_{n+1}$
+* $\bigwedge_{i \leq 0} \phi_i = \phi_0$
+* $\bigwedge_{i \leq n+1} \phi_i = \bigwedge_{i \leq n} \phi_i \wedge \phi_{n+1}$
+* $\bigvee_{i \leq 0} \phi_i = \phi_0$
+* $\bigvee_{i \leq n+1} \phi_i = \bigvee_{i \leq n} \phi_i \vee \phi_{n+1}$
 
 ---
 
