@@ -7,7 +7,11 @@ tags:
  - reading
 ---
 
-## 1.1 命題與連接詞
+- [1 命題與連接詞](#1-命題與連接詞)
+- [2 語義學](#2-語義學)
+- [3 命題邏輯的一些性質](#3-命題邏輯的一些性質)
+
+## 1 命題與連接詞
 
 **〔定義 1.1.1 字母〕** 命題邏輯由以下字母構成：
 
@@ -76,7 +80,7 @@ tags:
 * 若 $\phi = \psi_1 \Box \psi_2$，則 $r(\phi) = max(\psi_1, \psi_2) + 1$，
 * 若 $\phi = \neg \psi$，則 $r(\phi) = r(\psi) + 1$。
 
-## 1.2 語義學
+## 2 語義學
 
 **〔定義 1.2.1 賦值（valuation）〕** $v: PROP \rightarrow \{0,1\}$ 是一個賦值，若：
 
@@ -118,5 +122,135 @@ tags:
 > 1. $\llbracket \phi_1 \leftrightarrow \phi_2 \rrbracket_v \leq \llbracket \psi[\phi_1 / p] \leftrightarrow \psi [ \phi_2/p] \rrbracket_v$。
 > 2. $\models (\phi_1 \leftrightarrow \phi_2) \rightarrow (\psi[\phi_1/p] \leftrightarrow \phi[\phi_2 / p])$。
 
-## 1.3 命題邏輯的一些性質
+## 3 命題邏輯的一些性質
 
+**〔定理 1.3.1〕** 以下命題為恆真句：
+
+1. 結合性（associativity）：
+   * $(\phi \vee \psi) \vee \sigma \leftrightarrow \phi \vee (\psi \vee \sigma)$
+   * $(\phi \wedge \psi) \wedge \sigma \leftrightarrow \phi \wedge (\psi \wedge \sigma)$
+2. 交換性（commutativity）：
+   * $\phi \vee \psi \leftrightarrow \psi \vee \phi$
+   * $\phi \wedge \psi \leftrightarrow \psi \wedge \phi$
+3. 分配性（distributivity）：
+   * $\phi \vee (\psi \wedge \sigma) \leftrightarrow (\phi \vee \psi) \wedge (\phi \vee \sigma)$
+   * $\phi \wedge (\psi \vee \sigma) \leftrightarrow (\phi \wedge \psi) \vee (\phi \wedge \sigma)$
+4. 迪・摩根律（De Morgan’s laws）：
+   * $\neg (\phi \vee \psi) \leftrightarrow \neg \phi \wedge \neg \psi$
+   * $\neg (\phi \wedge \psi) \leftrightarrow \neg \phi \vee \neg \psi$
+5. 冪等性（idempotency）：
+   * $\phi \vee \phi \leftrightarrow \phi$
+   * $\phi \wedge \phi \leftrightarrow \phi$
+6. 雙重否定律（double negation law）：
+   * $\neg \neg \phi \leftrightarrow \phi$
+
+---
+
+**〔引理 1.3.2〕** 若 $\models \phi \rightarrow \psi$，則 $\models \phi \wedge \psi \leftrightarrow \phi$ 且 $\models \phi \vee \psi \leftrightarrow \psi$。
+
+---
+
+**〔引理 1.3.3〕**
+
+1. $\models \phi \Leftrightarrow \models \phi \wedge \psi \leftrightarrow \psi$
+2. $\models \phi \Leftrightarrow \models \neg \phi \vee \psi \leftrightarrow \psi$
+3. $\models \bot \vee \psi \leftrightarrow \phi$
+4. $\models \top \wedge \psi \leftrightarrow \phi$
+
+---
+
+**〔定理 1.3.4〕**
+
+1. $\models (\phi \leftrightarrow \psi) \leftrightarrow (\phi \rightarrow \psi) \wedge (\psi \rightarrow \phi)$
+2. $\models (\phi \rightarrow \psi) \leftrightarrow (\neg \phi \vee \psi)$
+3. $\models (\phi \vee \psi) \leftrightarrow (\neg \phi \rightarrow \psi)$
+4. $\models \phi \vee \psi \leftrightarrow \neg (\neg \phi \wedge \neg \psi)$
+5. $\models \phi \wedge \psi \leftrightarrow \neg (\neg \phi \vee \neg \psi)$
+6. $\models \neg \phi \leftrightarrow \phi \rightarrow \bot$
+7. $\models \top \leftrightarrow \phi \wedge \neg \phi$
+
+---
+
+我們將 $\models \phi \leftrightarrow \psi$ 簡寫成 $\phi \approx \psi$。
+
+---
+
+**〔引理 1.3.5〕** $\approx$ 是一個等同關係（equivalence relation）。
+
+---
+
+Sheffer stroke：
+
+| $\phi \| \psi$ | 0   | 1   |
+| -------------- | --- | --- |
+| 0              | 1   | 1   |
+| 1              | 1   | 0   |
+
+---
+
+**〔定理 1.3.6〕** 對於任何一個由賦值所定義的 $n$ 列連接詞 $\$$，存在一個只包含 $p_1$、……、$p_n$、$\vee$ 和 $\neg$ 的命題 $\gamma$，使得 $\models \gamma \leftrightarrow \$(p_1, ..., p_n)$。
+
+> 證明：透過歸納法。定義 $\$_1$ 與 $\$_2$ 使得
+> 
+> * $\$_1(p_2,...,p_{n+1}) = \$(\bot, p_2, ..., p_{n+1})$ 且
+> * $\$_2(p_2,...,p_{n+1}) = \$(\top, p_2, ..., p_{n+1})$。
+> 
+> 假設 $\models \$_i (p_2, ..., p_{n+1}) \leftrightarrow \sigma_i$。
+> 
+> 將 $\gamma$ 定義為 $(p_1 \rightarrow \sigma_2) \wedge (\neg p_1 \rightarrow \sigma_1)$，並證明 $\models \$(p_1,... ,p_{n+1}) \leftrightarrow \gamma$。
+
+---
+
+**〔定義 1.3.7〕** 
+
+* $\begin{cases}
+    \bigwedge_{i \leq 0} \phi_i = \phi_0
+    \\
+    \bigwedge_{i \leq n+1} \phi_i = \bigwedge_{i \leq n} \phi_i \wedge \phi_{n+1}
+\end{cases}$
+* $\begin{cases}
+    \bigvee_{i \leq 0} \phi_i = \phi_0
+    \\
+    \bigvee_{i \leq n+1} \phi_i = \bigvee_{i \leq n} \phi_i \vee \phi_{n+1}
+\end{cases}$
+
+---
+
+**〔定義 1.3.8：連言與選言標準式〕**
+
+* 若 $\phi = \bigwedge \bigvee \phi_{ij}$，其中 $\phi_{ij}$ 都是原子語句或是原子語句加上 $\neg$ ，$\phi$ 稱為一個連言標準式（conjunctive normal form）。
+* 若 $\phi = \bigvee \bigwedge \phi_{ij}$，其中 $\phi_{ij}$ 都是原子語句或是原子語句加上 $\neg$ ，$\phi$ 稱為一個選言標準式（disjunctive normal form）。
+
+---
+
+**〔定理 1.3.9〕** 對於任何 $\phi$，存在連言標準式 $\phi^{\wedge}$ 和選言標準式 $\phi^{\vee}$，使得 $\phi \approx \phi^{\wedge} \approx \phi^{\vee}$。
+
+---
+
+**〔定義 1.3.10〕** 輔助對應（auxiliary mapping）$^\ast: PROP \rightarrow PROP$ 遞迴定義如下：
+
+* $\phi^{\ast} = \neg \phi$，其中 $\phi$ 是原子語句，
+* $(\phi \wedge \psi)^{\ast} = \phi^{\ast} \vee \psi^{\ast}$，
+* $(\phi \vee \psi)^{\ast} = \phi^{\ast} \wedge \psi^{\ast}$，
+* $(\neg \phi)^{\ast} = \neg \phi^{\ast}$。
+
+---
+
+**〔引理 1.3.11〕** $\llbracket\phi^\ast\rrbracket=\llbracket\neg\phi\rrbracket$。
+
+> 性質：
+> 
+> * $\phi^\ast\approx\neg\phi$（**〔系理 1.3.12〕**）
+
+---
+
+**〔定義 1.3.13〕** 對偶對應（duality mapping）$^d: PROP \rightarrow PROP$ 遞迴定義如下：
+
+* $\phi^d = \phi$，其中 $\phi$ 是原子語句，
+* $(\phi \wedge \psi)^d = \phi^d \vee \psi^d$，
+* $(\phi \vee \psi)^d = \phi^d \wedge \psi^d$，
+* $(\neg \phi)^d = \neg \phi^d$。
+
+---
+
+**〔定理 1.3.14 對偶定理〕** $\phi \approx \phi \Leftrightarrow \phi^d \approx \psi^d$。
