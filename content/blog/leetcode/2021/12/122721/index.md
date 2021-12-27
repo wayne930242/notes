@@ -21,7 +21,7 @@ var generate = function(numRows) {
     for (var j = 1; j < arr.length - 1; j++) {
       arr[i][j] = arr[i-1][j-1] + arr[i-1][j]
     }
-  }
+ }
   return arr
 }
 ```
@@ -54,7 +54,6 @@ var getRow = function(rowIndex) {
 ```js
 var findComplement = function(num) {
   const bit = Math.floor(Math.log2(num)) + 1
-  const X = 2 ** (bit) - 1
-  return X - num
+  return 2 ** (bit) - 1 - num
 }
 ```
