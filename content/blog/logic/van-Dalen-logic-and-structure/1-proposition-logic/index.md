@@ -97,7 +97,19 @@ tags:
 
 ---
 
+**〔定義 1.2.4 恆真句（tautology）〕**
+
+1. $\phi$ 是一個恆真句，若且唯若，對於所有賦值 $v$，$\llbracket \phi \rrbracket_v = 1$。
+2. 簡寫成 $\models \phi$。
+3. 令 $\Gamma$ 是一個命題集合，$\Gamma \models \phi$，若且唯若，對於所有使得 $\forall \psi \in \Gamma [\llbracket \psi \rrbracket_v = 1]$ 的賦值 $v$，$\llbracket \phi \rrbracket_v = 1$。
+
+---
+
 **〔定義 1.2.5 替代〕** $\phi [\psi / p_i]$，代表以 $\psi$ 替代在 $\phi$ 中出現的所有原子語句 $p_i$。
+
+---
+
+**〔定理 1.2.6 替代定理〕** 若 $\models \phi_1 \leftrightarrow \phi_2$，則 $\psi[\phi_1/p] \leftrightarrow \psi[\phi_2/p]$，$p$ 是一個原子語句。
 
 > **說明**：可以更嚴謹地以遞迴定義。
 > 
