@@ -29,7 +29,7 @@ var generate = function(numRows) {
 ## Pascal's Triangle II
 [題號：119](https://leetcode.com/problems/pascals-triangle-ii/)
 
-令 $r = rowIndex$，第 $i$ 項的係數是 $C^{r}_i = C^{r - i}_i =  \frac{r - i + 1}{i} C^{r}_{i-1}$。
+令 $r = rowIndex$，第 $i$ 項的係數是 $C^{r}_i = C^{r}_{r-i} =  \frac{r - i + 1}{i} C^{r}_{i-1}$。
 
 ```js
 var getRow = function(rowIndex) {
