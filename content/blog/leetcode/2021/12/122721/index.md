@@ -42,7 +42,6 @@ var getRow = function(rowIndex) {
   while (l <= mid) {
     arr[l] = arr[rowIndex - l] = arr[l-1] * (rowIndex - l + 1) / l
     l++
-    r--
   }
   return arr
 }
