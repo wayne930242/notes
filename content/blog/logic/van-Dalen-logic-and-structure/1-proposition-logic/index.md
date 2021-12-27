@@ -118,3 +118,5 @@ tags:
 > 1. $\llbracket \phi_1 \leftrightarrow \phi_2 \rrbracket_v \leq \llbracket \psi[\phi_1 / p] \leftrightarrow \psi [ \phi_2/p] \rrbracket_v$。
 > 2. $\models (\phi_1 \leftrightarrow \phi_2) \rightarrow (\psi[\phi_1/p] \leftrightarrow \phi[\phi_2 / p])$。
 
+## 1.3 命題邏輯的一些性質
+
