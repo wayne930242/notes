@@ -194,10 +194,10 @@ Sheffer stroke： $\phi | \psi = \neg (\phi \wedge \psi)$
 
 **〔定義 1.3.7〕** 
 
-* $\bigwedge_{i \leq 0} \phi_i = \phi_0$
-* $\bigwedge_{i \leq n+1} \phi_i = \bigwedge_{i \leq n} \phi_i \wedge \phi_{n+1}$
-* $\bigvee_{i \leq 0} \phi_i = \phi_0$
-* $\bigvee_{i \leq n+1} \phi_i = \bigvee_{i \leq n} \phi_i \vee \phi_{n+1}$
+* $\displaystyle\bigwedge_{i \leq 0} \phi_i = \phi_0$
+* $\displaystyle\bigwedge_{i \leq n+1} \phi_i = \bigwedge_{i \leq n} \phi_i \wedge \phi_{n+1}$
+* $\displaystyle\bigvee_{i \leq 0} \phi_i = \phi_0$
+* $\displaystyle\bigvee_{i \leq n+1} \phi_i = \bigvee_{i \leq n} \phi_i \vee \phi_{n+1}$
 
 ---
 
@@ -223,7 +223,7 @@ Sheffer stroke： $\phi | \psi = \neg (\phi \wedge \psi)$
 
 **〔引理 1.3.11〕** $\llbracket\phi^\ast\rrbracket=\llbracket\neg\phi\rrbracket$。
 
-> 性質：
+> **性質**：
 > 
 > * $\phi^\ast\approx\neg\phi$（**〔系理 1.3.12〕**）
 
@@ -239,3 +239,217 @@ Sheffer stroke： $\phi | \psi = \neg (\phi \wedge \psi)$
 ---
 
 **〔定理 1.3.14 對偶定理〕** $\phi \approx \phi \Leftrightarrow \phi^d \approx \psi^d$。
+
+## 1.4 自然演繹法
+
+### 演繹規則
+
+**引入規則**：
+
+$
+\begin{aligned}
+\phi &\quad \psi \enspace _{(\wedge I)} \\\hline
+\phi &\wedge \psi 
+\end{aligned}
+$
+
+---
+
+$
+\begin{aligned}
+&[\phi]\\
+&...\\
+&\psi \enspace _{(\rightarrow I)} \\ \hline
+\phi &\rightarrow \psi
+\end{aligned}
+$
+
+**移出規則**：
+
+$
+\begin{aligned}
+\phi &\wedge \psi \enspace _{(\wedge E)} \\\hline
+&\phi 
+\end{aligned}
+$
+
+---
+
+$
+\begin{aligned}
+\phi &\wedge \psi \enspace _{(\wedge E)} \\\hline
+&\psi 
+\end{aligned}
+$
+
+---
+
+$
+\begin{aligned}
+\phi &\quad \phi \rightarrow \psi \enspace _{(\rightarrow E)} \\\hline
+&\psi 
+\end{aligned}
+$
+
+---
+
+$
+\begin{aligned}
+&\bot \enspace _{(\bot)} \\\hline
+&\phi
+\end{aligned}
+$
+
+---
+
+$
+\begin{aligned}
+[\neg &\phi]\\
+&...\\
+&\bot \enspace _{(RAA)} \\ \hline
+&\phi
+\end{aligned}
+$
+
+---
+
+**〔定義 1.4.1〕** 演繹集合（the set of derivations）是滿足下列性質的最小集合：
+
+(1) 對於所有 $\phi\in PROP$，單一元素樹 $\phi \in X$。
+
+(2 $\wedge$)
+
+若 $\begin{matrix}D\\ \phi\end{matrix} \ , \begin{matrix}D'\\ \phi'\end{matrix} \in X$，則 $\begin{matrix} \begin{matrix}D\\ \phi\end{matrix} \quad \begin{matrix}D'\\ \phi'\end{matrix} \\ \hline \phi \wedge \phi' \end{matrix} \in X$。
+
+若 $\begin{matrix} D \\ \phi \wedge \psi \end{matrix} \in X$，則 $\begin{aligned} &D \\ \phi &\wedge \psi \\ \hline &\phi \end{aligned}, \begin{aligned} &D \\ \phi &\wedge \psi \\ \hline &\psi \end{aligned} \in X$。
+
+(2 $\rightarrow$)
+
+若 $\begin{matrix}\phi \\ D \\ \psi\end{matrix} \in X$，則 $\begin{matrix} [\phi] \\ D \\ \psi \\ \hline \phi \rightarrow \phi \end{matrix} \in X$。
+
+若 $\begin{matrix} D \\ \phi \end{matrix},\begin{matrix} D' \\ \phi \rightarrow \psi \end{matrix}  \in X$，則 $\begin{matrix}  \begin{matrix} D \\ \phi \end{matrix} \quad \begin{matrix} D' \\ \phi \rightarrow \psi \end{matrix} \\ \hline \psi \end{matrix} \in X$。
+
+(2 $\bot$)
+
+若 $\begin{matrix} D \\ \bot \end{matrix} \in X$，則 $\begin{matrix} D \\ \bot \\ \hline \phi \end{matrix} \in X$。
+
+若 $\begin{matrix} \neg \phi \\ D \\ \bot \end{matrix} \in X$，則 $\begin{matrix} [\neg\phi] \\ D \\ \bot \\ \hline \phi \end{matrix} \in X$。
+
+---
+
+**〔定義 1.4.2〕** $\Gamma \vdash \phi$ 的意思是「可以以 $\Gamma$（一個命題集合）的命題作為假設演繹出 $\phi$」。
+
+---
+
+**〔引理 1.4.3〕**
+
+1. 若 $\phi \in \Gamma$，則 $\phi \vdash \Gamma$，
+2. $\Gamma \vdash \phi, \Gamma' \vdash \psi \Rightarrow \Gamma \cup \Gamma' \vdash \phi \wedge \psi$，
+3. $\Gamma \vdash \phi \wedge \psi \Rightarrow \Gamma \vdash  \phi$ 且 $\Gamma \vdash \psi$，
+4. $\Gamma \cup \{\phi\} \vdash \psi \Rightarrow \Gamma \vdash \phi \rightarrow \psi$，
+5. $\Gamma \vdash \phi, \Gamma' \vdash \phi \rightarrow \psi \Rightarrow \Gamma \cup \Gamma' \vdash \psi$。
+6. $\Gamma \vdash \bot \Rightarrow \Gamma \vdash \phi$。
+7. $\Gamma \cup \{ \neg \phi \} \vdash\bot \Rightarrow \Gamma\vdash\phi$。
+
+---
+
+**〔定理 1.4.4〕**
+
+1. $\vdash \phi\rightarrow(\psi\rightarrow\phi)$，
+1. $\vdash \phi\rightarrow(\neg\phi\rightarrow\psi)$，
+1. $\vdash (\phi\rightarrow\psi)\rightarrow[(\psi\rightarrow\sigma)\rightarrow(\phi\rightarrow\sigma)]$，
+1. $\vdash (\phi\leftrightarrow\psi)\rightarrow(\neg\psi\rightarrow\neg\phi)$，
+1. $\vdash \neg\neg\phi\leftrightarrow\phi$，
+1. $\vdash [\phi\rightarrow(\psi\rightarrow\sigma)]\leftrightarrow(\phi\wedge\psi\rightarrow\sigma)$，
+1. $\vdash \bot\leftrightarrow(\phi\wedge\neg\phi)$。
+
+---
+
+## 1.5 完備性
+
+**〔定理 1.5.1 健全性〕** $\Gamma \vdash \phi \Rightarrow \Gamma \vDash \phi$。
+
+> **證明：** 以歸納法證明。
+
+---
+
+**〔定義 1.5.2 （語法的）一致性〕** 若 $\Gamma\nvdash\bot$，則我們說 $\Gamma$ 是一致的。
+
+---
+
+**〔引理 1.5.3〕** 以下三個條件是等同的：
+
+1. $\Gamma$ 是一致的，
+2. 不存在 $\phi$ 使得 $\Gamma\vdash\phi$ 且 $\Gamma\vdash\neg\phi$。
+3. 存在一個 $\phi$ 使得 $\Gamma\nvdash\phi$。
+
+---
+
+**〔引理 1.5.4〕** 若存在賦值 $v$ 使得，對於所有 $\psi\in\Gamma$，$\llbracket\psi\rrbracket_v = 1$，則 $\Gamma$ 是一致的。
+
+---
+
+**〔引理 1.5.5〕〕**
+
+1. $\Gamma\cup\{\neg\phi\}$ 是不一致的 $\Rightarrow$ $\Gamma\vdash\phi$。
+2. $\Gamma\cup\{\phi\}$ 是不一致的 $\Rightarrow$ $\Gamma\vdash\neg\phi$。
+
+---
+
+**〔定義 1.5.6〕** 一個集合 $\Gamma$ 是最大一致的（maximally consistent），若且唯若
+
+1. $\Gamma$ 是一致的，
+2. $\Gamma \sube \Gamma'$ 且 $\Gamma'$ 是一致的 $\Rightarrow \Gamma = \Gamma'$。
+
+---
+
+**〔引理 1.5.7〕** 對於任何一致的集合 $\Gamma$，存在一個包含 $\Gamma$ 的最大一致集合 $\Gamma^*$。
+
+> **證明**：
+> 
+> 令
+> 
+> $\begin{aligned}\Gamma_0 &= \Gamma\\\Gamma_{n+1}&=\begin{cases}\Gamma_n\cup\{\phi_n\} &\text{若 }\Gamma\text{ 是一致的，}\\\Gamma_n &\text{其他。}\end{cases}\\\Gamma^*&=\bigcup\{\Gamma_n | n \geq 0 \}\end{aligned}$ 。
+> 
+> 顯然，$\Gamma \sube \Gamma^*$。可以證明 $\Gamma^*$ 是一個最大一致集合。
+
+---
+
+**〔引理 1.5.8〕** 若 $\Gamma$ 是最大一致的，則 $\Gamma$ 是演繹封閉的。
+
+---
+
+**〔引理 1.5.9〕** 若 $\Gamma$ 是最大一致的，則
+
+1. 對於所有 $\phi$，要嘛 $\phi\in\Gamma$，要嘛 $\neg\phi\in\Gamma$，
+2. $\phi,\psi,\phi\rightarrow\psi\in\Gamma \Leftrightarrow (\phi\in\Gamma\Rightarrow\psi\in\Gamma)$。
+
+> **證明**：透過〔引理 1.5.5〕與〔引理 1.5.8〕。
+
+---
+
+**〔系理 1.5.10〕** 若 $\Gamma$ 是最大一致的，則 $\phi\in\Gamma\Leftrightarrow\neg\phi\notin\Gamma$ 且 $\neg\phi\in\Gamma\Leftrightarrow\phi\notin\Gamma$。
+
+---
+
+**〔引理 1.5.11 存在性定理〕** 若 $\Gamma$ 是一致的，則存在賦值 $v$ 使得，對於所有 $\psi\in\Gamma$，$\llbracket\psi\rrbracket_v = 1$。
+
+> **證明**：考慮 $\Gamma^*$（〔引理 1.5.7〕）。
+> 
+> 定義 $v$：$v(p_i)=\begin{cases}1 &\text{若 }p_i\in\Gamma^*\text{，}\\0&\text{其他。}&\end{cases}$，將 $v$ 拓展到 $\llbracket \enspace \rrbracket_v$。
+> 
+> 再以歸納法證明 $\llbracket\phi\rrbracket_v = 1 \Leftrightarrow \phi \in \Gamma^*$（需要〔引理 1.5.8〕與〔引理 1.5.9〕）。
+
+---
+
+**〔系理 1.5.12〕** $\Gamma\nvdash\phi\Leftrightarrow$ 存在賦值 $v$ 使得，對於所有 $\psi\in\Gamma$，$\llbracket\psi\rrbracket_v = 1$ 並且 $\llbracket\phi\rrbracket_v = 0$ 。
+
+> **證明**：$\Gamma\nvdash\phi\Leftrightarrow\Gamma\cup\{\neg\phi\}$ 是一致的 $\Leftrightarrow$ 存在賦值 $v$ 使得，對於所有 $\psi\in\Gamma\cup\{\neg\phi\}$，$\llbracket\psi\rrbracket_v = 1$。
+
+---
+
+**〔定理 1.5.13 完備性定理〕** $\Gamma\vdash\phi\Leftrightarrow\Gamma\vDash\phi$。
+
+> **證明**：根據〔定理 1.5.1〕，$\Rightarrow$ 成立。
+>
+> 若 $\Gamma\nvdash\phi$，根據〔系理 1.5.12〕，$\Gamma\nvDash\phi$。

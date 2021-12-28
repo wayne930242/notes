@@ -8,6 +8,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
+    "@babel/core": "^7.12.3",
     "gatsby": "^4.3.0",
     "gatsby-plugin-categories": "^2.3.7",
     "gatsby-plugin-feed": "^4.3.0",
@@ -29,7 +30,7 @@
     "gatsby-source-filesystem": "^4.3.0",
     "gatsby-transformer-remark": "^5.4.0",
     "gatsby-transformer-sharp": "^4.3.0",
-    "katex": "^0.15.1",
+    "katex": "^0.13.3",
     "prismjs": "^1.25.0",
     "react": "^17.0.1",
     "react-bootstrap": "^2.0.3",
