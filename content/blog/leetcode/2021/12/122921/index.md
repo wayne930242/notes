@@ -58,8 +58,8 @@ var connect = function(root) {
     if(!rt) return
     if (left) rt.next = pa.right
     else if(!left && pa && pa.next) rt.next = pa.next.left
-    recur(rt.left, rt, 1)
-    recur(rt.right, rt, 0)
+    recur(rt.left, rt, true)
+    recur(rt.right, rt, false)
   }
   recur(root)
   return root
