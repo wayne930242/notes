@@ -7,6 +7,8 @@ tags:
  - reading
 ---
 
+> Dirk van Dalen, *Logic and Structure, 4th*.
+
 ## 1.1 命題與連接詞
 
 **〔定義 1.1.1 字母〕** 命題邏輯由以下字母構成：
@@ -343,7 +345,7 @@ $
 
 **〔引理 1.4.3〕**
 
-1. 若 $\phi \in \Gamma$，則 $\phi \vdash \Gamma$，
+1. 若 $\phi \in \Gamma$，則 $\Gamma\vdash\phi$，
 2. $\Gamma \vdash \phi, \Gamma' \vdash \psi \Rightarrow \Gamma \cup \Gamma' \vdash \phi \wedge \psi$，
 3. $\Gamma \vdash \phi \wedge \psi \Rightarrow \Gamma \vdash  \phi$ 且 $\Gamma \vdash \psi$，
 4. $\Gamma \cup \{\phi\} \vdash \psi \Rightarrow \Gamma \vdash \phi \rightarrow \psi$，
@@ -453,3 +455,30 @@ $
 > **證明**：根據〔定理 1.5.1〕，$\Rightarrow$ 成立。
 >
 > 若 $\Gamma\nvdash\phi$，根據〔系理 1.5.12〕，$\Gamma\nvDash\phi$。
+
+## 1.6 其他連接詞
+
+**〔定義 1.6.1〕**
+
+* $\phi\vee\psi\coloneqq\neg(\neg\phi\wedge\psi)$，
+* $\neg\phi\coloneqq\phi\rightarrow\bot$，
+* $\phi\leftrightarrow\psi\coloneqq(\phi\rightarrow\psi)\wedge(\psi\rightarrow\phi)$。
+
+---
+
+**〔引理 1.6.2〕**
+
+1. $\phi\vdash\phi\vee\psi$，$\psi\vdash\phi\vee\psi$，
+2. $\Gamma,\phi\vdash\sigma$ 且 $\Gamma,\psi\vdash\sigma \Rightarrow \Gamma,\phi\wedge\psi\vdash\sigma$，
+3. $\phi,\neg\phi\vdash\bot$，
+4. $\Gamma,\phi\vdash\bot\Rightarrow\Gamma\vdash\neg\phi$，
+5. $\phi\leftrightarrow\psi,\phi\vdash\psi$ 且 $\phi\leftrightarrow\psi,\psi\vdash\phi$，
+6. $\Gamma,\phi\vdash\psi$ 且 $\Gamma,\psi\vdash\phi \Rightarrow\Gamma\vdash\phi\leftrightarrow\psi$。
+
+---
+
+**〔定理 1.6.3〕** 
+
+* $\vdash\phi\vee\psi\leftrightarrow\neg(\neg\phi\wedge\neg\psi)$，
+* $\vdash\neg\phi\leftrightarrow(\phi\rightarrow\bot)$，
+* $\vdash(\phi\leftrightarrow\psi)\leftrightarrow(\phi\rightarrow\psi)\wedge(\psi\rightarrow\phi)$。
