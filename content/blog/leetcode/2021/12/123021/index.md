@@ -80,3 +80,20 @@ var smallestRepunitDivByK = function(k) {
   return -1
 }
 ```
+
+更快的寫法：
+
+```js
+var smallestRepunitDivByK = function(k) {
+  if(k % 2 === 0 && k % 5 === 0) return -1
+  let temp = 0
+  const arr = new Set ()
+  for(var i = 1; i <= k; i++){
+    temp = (temp * 10 + 1) % k
+    if(temp === 0) return i
+    if (arr.has(temp)) return -1 
+    arr.add(temp)
+  }
+  return -1
+}
+```
