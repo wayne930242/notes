@@ -73,7 +73,7 @@ var inorderTraversal = function(root) {
 var smallestRepunitDivByK = function(k) {
   if(k % 2 === 0 && k % 5 === 0) return -1
   let temp = 0
-  for(var i=1; i <= k; i++){
+  for(var i = 1; i <= k; i++){
     temp = (temp * 10 + 1) % k
     if(temp === 0) return i
   }
