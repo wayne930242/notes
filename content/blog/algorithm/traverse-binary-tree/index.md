@@ -1,5 +1,5 @@
 ---
-title: 二元樹的遍歷方法
+title: 二元樹的遍歷方法（js）
 date: "2021-12-31"
 category: Codeing
 tags:
