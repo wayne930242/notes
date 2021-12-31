@@ -65,8 +65,8 @@ var maxAncestorDiff = function(root) {
     max = Math.max(max, node.val)
     min = Math.min(min, node.val)
     return Math.max(
-        dfs(node.left, max, min),
-        dfs(node.right, max, min)
+      dfs(node.left, max, min),
+      dfs(node.right, max, min)
     )
   }
   return dfs(root, root.val, root.val)
