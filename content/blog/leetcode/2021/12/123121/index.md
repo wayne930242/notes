@@ -61,16 +61,14 @@ var twoSum = function(numbers, target) {
 ```js
 var maxAncestorDiff = function(root) {
   const dfs = (node, max, min) => {
-        if(!node) return max - min 
-        
-        max = Math.max(max, node.val)
-        min = Math.min(min, node.val)
-        
-        return Math.max(
-            dfs(node.left, max, min),
-            dfs(node.right, max, min)
-        )
-    }
-    return dfs(root, root.val, root.val)
+    if(!node) return max - min 
+    max = Math.max(max, node.val)
+    min = Math.min(min, node.val)
+    return Math.max(
+        dfs(node.left, max, min),
+        dfs(node.right, max, min)
+    )
+  }
+  return dfs(root, root.val, root.val)
 }
 ```
