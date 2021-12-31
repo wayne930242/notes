@@ -57,7 +57,7 @@ tags:
 
 ---
 
-**〔定義 2.3.1 詞項〕** $TERM$ 是有以下性質的最小集合 $X$：
+**〔定義 2.3.1 句項〕** $TERM$ 是有以下性質的最小集合 $X$：
 
 1. $\overline{c}_i\in X (c\in I)$ 且 $x_i \in X (i\in N)$。
 2. $t_1,...,t_{a_i} \in X \Rightarrow f_i(t_1,...,t_{a_i}) \in X (1 \leq i \leq m)$。
@@ -83,6 +83,109 @@ tags:
 
 ---
 
-**〔定理 2.3.3 歸納法〕** 令 $A(t)$ 是詞項的性質。若 $A(t)$ 在 $t$ 是常數或是變數時成立，並且 $A(t_1),A(t_2),...,A(t_n)\Rightarrow A(f(t_1),f(t_2),...,f(t_n))$ 對於所有函數符號 $f$，則 $A(t)$ 對所有 $t\in TERM$ 成立。
+**〔引理 2.3.3〕** 令 $A(t)$ 是句項的性質。若 $A(t)$ 在 $t$ 是常數或是變數時成立，並且 $A(t_1),A(t_2),...,A(t_n)\Rightarrow A(f(t_1),f(t_2),...,f(t_n))$ 對於所有函數符號 $f$，則 $A(t)$ 對所有 $t\in TERM$ 成立。
 
 ---
+
+**〔引理 2.3.4〕** 令 $A(\phi)$ 是一個句式的性質，若
+
+* $A(\phi)$，當 $\phi$ 是原子，
+* $A(\phi), A(\psi) \Rightarrow \phi \Box \psi$，
+* $A(\phi) \Rightarrow A(\neg \phi)$，
+* $A(\phi) \Rightarrow$ 對於所有 $i$，$A((\forall x_i)\phi), A((\exists x_i) \phi)$，則 $A(\phi)$ 在所有 $\phi \in FORM$ 成立。
+
+---
+
+**$TERM$ 上的遞迴定義**：令 $H_0: Var\cup Const \rightarrow A$，$H_i : A^{a_i} \rightarrow A$，存在唯一的對應 $H$ 使得
+
+* 對於所有常數或變數 $t$，$H(t) = H_0(t)$，
+* $H(f_i(t_1,...,t_{a_i})) = H_i(H(t_1),...,H(t_{a_i}))$。
+
+**$FORM$ 上的遞迴定義**：令
+
+* $H_{at} = At \rightarrow A$，
+* $H_{\Box} = A^2 \rightarrow A$，
+* $H_{\neg} = A \rightarrow A$，
+* $H_{\forall} = A \times \N \rightarrow A$，
+* $H_{\exist} = A \times \N \rightarrow A$，
+
+存在唯一的對應 $H$ 使得
+
+* $H(\phi) = H_{at}(\phi)$，當 $\phi$ 是原子，
+* $H(\phi\Box\psi) = H_{\Box}(H(\phi),H(\psi))$，
+* $H(\neg \phi) = H_\neg (H(\phi))$，
+* $H(\forall x_i \phi)= H_{\forall}(H(\phi), i)$，
+* $H(\exist x_i \phi)= H_{\exist}(H(\phi), i)$。
+
+---
+
+**〔定義 2.3.6 〕** $t$ 的自由變數集合 $FV(t)$ 的定義為：
+
+* $\begin{aligned} FV(x_i) &\coloneqq \{x_i\} \text{，} \\ FV(\overline{c}_i) &\coloneqq \empty \text{，} \end{aligned}$
+* $FV(f(t_1,...,t_n))\coloneqq FV(t_1)\cup...\cup FV(t_n)$。
+
+---
+
+**〔定義 2.3.7〕** $\phi$ 的自由變數集合 $FV(\phi)$ 的定義為：
+
+* $\begin{aligned} FV(P(t_1,...,t_n)) &\coloneqq FV(t_1)\cup ... \cup F(t_n) \text{，} \\ FV(t_1 = t_2) &\coloneqq FV(t_1)\cup FV(t_2) \text{，}\\ FV(\bot) = FV(P) &\coloneqq \empty \text{，} \end{aligned}$
+* $\begin{aligned} FV(\phi\Box\psi) &\coloneqq FV(\phi) \cup FV(\psi) \text{，} \\ FV(\neg \phi) &\coloneqq FV(\phi) \text{，}\end{aligned}$
+* $FV(\forall x_i \phi) = FV(\exist x_i \phi) \coloneqq FV(\phi) - \{x_i\}$。
+
+---
+
+**〔定義 2.3.8〕** 若 $FV(t) = \empty$ 或 $FV(\phi) = \empty$，則 $t$ 或 $\phi$ 稱之為封閉的。封閉句式稱之為語句。沒有量詞的句式稱之為開放的。$TERM_c$ 表示封閉句項的集合；$FORM$ 表示語句的集合。
+
+---
+
+**〔定義 2.3.9〕** 令 $s$ 和 $t$ 為句項，則 $s[t/x]$ 定義為：
+
+* $\begin{aligned} y[t/x] &\coloneqq \begin{cases} y &\text{若 } y \not\equiv x \text{，}\\ t &\text{若 } y\equiv x \end{cases} \\ c[t/x] &\coloneqq c \text{，} \end{aligned}$，
+* $f(t_1,...,t_p)[t/x] \coloneqq f(t_1[t/x],...,t_p[t/x])$。
+
+---
+
+**〔定義 2.3.10〕** $\phi[t/x]$ 定義為：
+
+* $\begin{aligned} \bot[t/x] &\coloneqq \bot\text{，} \\ P[t/x] &\coloneqq P \text{ ，若 } P \text{是命題，} \\ P(t_1,...,t_p) &\coloneqq P(t_1[t/x],...,t_p(t/x)) \text{，} \end{aligned}$
+* $\begin{aligned} (\phi\Box\psi)[t/x] &\coloneqq \phi[t/x] \Box \psi[t/x] \text{，}\\ (\neg\phi)[t/x] &\coloneqq \neg\phi[t/x] \text{，}\end{aligned}$
+* $\begin{aligned}(\forall y \phi)[t/x] &\coloneqq \begin{cases} \forall y \phi [t/x] &\text{若} x\not\equiv y \\ \forall y\phi &\text{若} x\equiv y\end{cases} \\ (\exist y \phi)[t/x] &\coloneqq \begin{cases} \exist y \phi [t/x] &\text{若} x\not\equiv y \\ \exist y\phi &\text{若} x\equiv y\end{cases} \end{aligned}$
+
+---
+
+為了方便起見，我們以 $\text{\textdollar}$ 表示要替換的命題符號（0 元述詞符號）。
+
+**〔定義 2.3.11〕** $\sigma[\phi/\text{\textdollar}]$ 定義為：
+
+* $\sigma[\phi/\text{\textdollar}] \coloneqq \begin{cases} \sigma &\text{若 } \sigma \not \equiv \text{\textdollar} \\ \phi &\text{若 } \sigma \equiv \text{\textdollar} \end{cases} \text{ 對於原子} \sigma$，
+* $\begin{aligned} (\sigma_1 \Box \sigma_2)[\phi/\text{\textdollar}] &\coloneqq \sigma_1[\phi/\text{\textdollar}] \Box \sigma_2[\phi/\text{\textdollar}] \\ (\neg \sigma)[\phi/\text{\textdollar}] &\coloneqq \neg \sigma[\phi/\text{\textdollar}] \\ (\forall y \sigma)[\phi/\text{\textdollar}] &\coloneqq \forall y.\sigma[\phi/\text{\textdollar}] \\ (\exist y \sigma [\phi / \text{\textdollar}]) &\coloneqq \exist y. \sigma [\phi/\text{\textdollar}] \end{aligned}$。
+
+---
+
+**〔定義 2.3.12〕** $t$ 對在 $\phi$ 的 $x$ 是自由的，若
+
+1. $\phi$ 是原子，或
+2. $\phi\coloneqq\phi_1\Box\phi_2$（或 $\phi\coloneqq\neg\phi_1$），並且 $t$ 對在 $\phi_1$ 和 $\phi_2$ （或 $\phi_1$）的 $x$ 是自由的，或
+3. $\phi\coloneqq\forall y\psi$（或 $\phi\coloneqq\exist y\psi$），並且若 $x\in FV(\phi)$，則 $y\notin FV(t)$ 且 $t$ 對於在 $\phi$ 中的 $x$ 是自由的。
+
+---
+
+**〔引理 2.3.13〕** $t$ 對在 $\phi$ 的 $x$ 是自由的 $\Leftrightarrow$ $t$ 的在 $\phi[t/x]$ 中的變數不在量詞的範圍內。
+
+> **證明**：對 $\phi$ 做歸納法。
+
+---
+
+**〔定義 2.3.14〕** $\phi$ 對在 $\sigma$ 的 $\text{\textdollar}$ 是自由的，若
+
+1. $\sigma$ 是原子，或
+2. $\sigma\coloneqq\sigma_1\Box\sigma_2$（或 $\sigma\coloneqq\neg\sigma_1$），並且 $\phi$ 對在 $\sigma_1$ 和 $\sigma_2$ （或 $\sigma_1$）的 $\text{\textdollar}$ 是自由的，或
+3. $\sigma\coloneqq\forall y\gamma$（或 $\phi\coloneqq\exist y\gamma$），並且若 $\text{\textdollar}$ 出現在 $\sigma$ 中，則 $y\notin FV(\phi)$ 且 $\phi$ 對於在 $\gamma$ 中的 $\text{\textdollar}$ 是自由的。
+
+---
+
+**〔引理 2.3.15〕** $\phi$ 對在 $\sigma$ 的 $\text{\textdollar}$ 是自由的 $\Leftrightarrow$ $\phi$ 的在 $\sigma[\phi/\text{\textdollar}]$ 中的變數不在量詞的範圍內。
+
+---
+
+**〔定義 2.3.16〕** $\mathfrak{A}$ 的擴展語言 $L(\mathfrak{A})$ 是從語言 $L$ 和 $\mathfrak{A}$ 的類似型，加上所有的 $\mathfrak{A}$ 的元素的常數符號。我們將屬於 $a \in \mathfrak{A}$ 的常數符號以 $\overline{a}$ 表示。
