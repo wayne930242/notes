@@ -12,7 +12,7 @@ tags:
   * `stack`：一個陣列，在迭代中，透過 `push` 新增工作，透過 `pop` 進行工作。
 * 遞迴方法：透過函數的遞迴呼叫來進行 `stack` 迭代方法。
 
-# Breadth First Search，BFS
+## Breadth First Search，BFS
 
 ![](types-of-binary-tree.png)
 
@@ -34,9 +34,9 @@ const bfs = (root) => {
 }
 ```
 
-# Depth First Search，DFS
+## Depth First Search，DFS
 
-## Pre-Order
+### Pre-Order
 
 ![](types-of-binary-tree.png)
 
@@ -73,7 +73,7 @@ const perOrderDfs = (node) => {
 }
 ```
 
-## In-Order
+### In-Order
 
 ![](types-of-binary-tree.png)
 
@@ -116,7 +116,7 @@ const inOrderDfs = (node) => {
 }
 ```
 
-## Post-Order
+### Post-Order
 
 ![](types-of-binary-tree.png)
 
