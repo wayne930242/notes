@@ -21,7 +21,7 @@ const l = nums.length
 
 > $n = \begin{bmatrix} &n_0(= 1) &n_1 &... &n_{l-2} &n_{l-1} (= 1) \end{bmatrix}.$
 
-為了方便討論，我們還用 $n^i_j$ 來表示 $\lang n_i,n_{i+1}, ... ,n_{j} \rang$，$i\leq j$。
+為了方便討論，我們還用 $n^i_j$ 來表示數列 $\lang n_i,n_{i+1}, ... ,n_{j} \rang$，$i\leq j$。
 
 ---
 
