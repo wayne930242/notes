@@ -17,7 +17,7 @@ nums = [1, ...nums, 1]
 const l = nums.length
 ```
 
-為了方便討論，我們可以令對應到 `nums` 的矩陣 $n$ 寫成：
+為了方便討論，我們可以令對應到 `nums` 的矩陣 $n$ 為：
 
 > $n = \begin{bmatrix} &n_0(= 1) &n_1 &... &n_{l-2} &n_{l-1} (= 1) \end{bmatrix}.$
 
