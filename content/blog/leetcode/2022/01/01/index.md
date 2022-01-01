@@ -10,18 +10,18 @@ tags:
 ## Burst Balloons
 [題號：312](https://leetcode.com/problems/burst-balloons/)
 
-首先，令 `nums` 為 `[1, ...nums, 1]`，並令長度為 $l$。
+首先，在 `nums` 的最前面和最後面都加上 `1`，並令長度為 $l$（原先的 `nums` 的長度只有 `l - 2`）。
 
 ```js
 nums = [1, ...nums, 1]
 const l = nums.length
 ```
 
-可以將 $n$（`nums`）矩陣寫為：
+為了方便討論，我們可以令對應到 `nums` 的矩陣 $n$ 寫成：
 
 > $n = \begin{bmatrix} &n_0(= 1) &n_1 &... &n_{l-2} &n_{l-1} (= 1) \end{bmatrix}.$
 
-為了方便起見，我們以 $n^i_j$ 表示 $\{ n_i,n_{i+1}, ... ,n_{j}\}$，$i\leq j$。
+為了方便討論，我們還用 $n^i_j$ 來表示 $\{ n_i,n_{i+1}, ... ,n_{j}\}$，$i\leq j$。
 
 ---
 
