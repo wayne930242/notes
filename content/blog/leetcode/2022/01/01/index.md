@@ -19,7 +19,7 @@ const l = nums.length
 
 可以將 $n$（`nums`）矩陣寫為：
 
-$$n = \begin{bmatrix}&n_0(= 1) &n_1 &... &n_{l-2} &n_{l-1} (= 1) \end{bmatrix}.$$
+> $n = \begin{bmatrix} &n_0(= 1) &n_1 &... &n_{l-2} &n_{l-1} (= 1) \end{bmatrix}.$
 
 為了方便起見，我們以 $n^i_j$ 表示 $\{ n_i,n_{i+1}, ... ,n_{j}\}$，$i\leq j$。
 
@@ -39,13 +39,13 @@ return dp[1][l-2]
 
 使得 $D$ 是一個上半矩陣：
 
-$$D = \begin{bmatrix}
+> $D = \begin{bmatrix}
   &D_{0,0}(=n_0) &D_{0,1} &... &D_{0,l-1} \\
   &0 &D_{1,1}(=n_1) &... &D_{1,l-1} \\
   &0 &0 &... &D_{2,l-1} \\
   &... &... &... &... \\
   &0 &0 &... &D_{l-1,l-1}(=n_{l-1}) 
-\end{bmatrix}.$$
+\end{bmatrix}.$
 
 ---
 
@@ -53,17 +53,17 @@ $$D = \begin{bmatrix}
 
 因為 $D_ij$ 是唯一的，我們可以假設一個函數 $M: \{n^i_j\} \rightarrow \N$ 使得
 
-$$M(n^i_j) = D_{ij}.$$
+> $M(n^i_j) = D_{ij}$。
 
 考慮任意的 $i,j$，對於所有介於 $i$ 和 $j$ 之間的 $k$，$n_k$ 會把 $n^i_j$ 分成兩段：
 
-$$\{ \textcolor{green}{n_i, n_{i+1}, ...}, n_k, \textcolor{red}{..., n_{j-1}, n_{j}} \}.$$
+> $\{ \textcolor{green}{n_i, n_{i+1}, ...}, n_k, \textcolor{red}{..., n_{j-1}, n_{j}} \}$。
 
 前半部的爆破所獲錢幣最大值是 $M(n^i_{k-1})$，後半部的最大值是 $M(n^{k+1}_j)$，最後加上爆破 $k$ 所獲得的錢幣，因為前後都爆破了，左邊現在是 $n_{i-1}$，右邊是 $n_{j+1}$。
 
 寫成式子即為：
 
-$$M(n^i_j) = \max_{i\leq k \leq j}(\{ M(n^i_{k-1}) + M(n^{k+1}_j) + n_{i-1} \times n_k \times n_{j+1}\}).$$
+> $M(n^i_j) = \max_{i\leq k \leq j}(\{ M(n^i_{k-1}) + M(n^{k+1}_j) + n_{i-1} \times n_k \times n_{j+1}\})$。
 
 程式碼為：
 
