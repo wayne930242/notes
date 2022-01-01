@@ -10,7 +10,7 @@ tags:
 ## Burst Balloons
 [題號：312](https://leetcode.com/problems/burst-balloons/)
 
-首先，在 `nums` 的最前面和最後面都加上 `1`，並令長度為 $l$（原先的 `nums` 的長度只有 `l - 2`）。
+首先，在 `nums` 的最前面和最後面都加上 `1`，並令長度為 $l$（原先的 `nums` 的長度只有 $l - 2$）。
 
 ```js
 nums = [1, ...nums, 1]
