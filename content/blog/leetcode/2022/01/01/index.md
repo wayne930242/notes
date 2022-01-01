@@ -21,7 +21,7 @@ const l = nums.length
 
 > $n = \begin{bmatrix} &n_0(= 1) &n_1 &... &n_{l-2} &n_{l-1} (= 1) \end{bmatrix}.$
 
-為了方便討論，我們還用 $n^i_j$ 來表示 $\{ n_i,n_{i+1}, ... ,n_{j}\}$，$i\leq j$。
+為了方便討論，我們還用 $n^i_j$ 來表示 $\lang n_i,n_{i+1}, ... ,n_{j} \rang$，$i\leq j$。
 
 ---
 
@@ -49,13 +49,13 @@ const dp = [...Array(l)].map(() => Array(l).fill(0))
 
 考慮任意的 $i,j$，對於所有介於 $i$ 和 $j$ 之間的 $k$，$n_k$ 會把 $n^i_j$ 分成兩段：
 
-> $\{ \textcolor{green}{n_i, n_{i+1}, ..., n_{k-1}}, n_k, \textcolor{red}{n_{k+1}, ..., n_{j-1}, n_{j}} \}$。
+> $\lang \textcolor{green}{n_i, n_{i+1}, ..., n_{k-1}}, n_k, \textcolor{red}{n_{k+1}, ..., n_{j-1}, n_{j}} \rang$。
 
 前半部的爆破所獲錢幣最大值是 $M(n^i_{k-1})$，後半部的最大值是 $M(n^{k+1}_j)$，最後加上爆破 $k$ 所獲得的錢幣，因為前後都爆破了，左邊現在是 $n_{i-1}$，右邊是 $n_{j+1}$。
 
 寫成式子即為：
 
-> $M(n^i_j) = \max_{i\leq k \leq j}(\{ M(n^i_{k-1}) + M(n^{k+1}_j) + n_{i-1} \times n_k \times n_{j+1}\})$。
+> $M(n^i_j) = \max_{i\leq k \leq j}(\{ M(n^i_{k-1}) + M(n^{k+1}_j) + n_{i-1} \times n_k \times n_{j+1} \})$。
 
 程式碼為：
 
@@ -71,11 +71,18 @@ for (var k = i; k <= j; k++) {
 
 ---
 
-接下來就是考慮迭代方式：
+接下來就是考慮迭代範圍：
 
 1. 對每個小於 `l - 1` （記得 `nums` 實際上的長度只有 `l - 2`）的長度 `len` 以及 `i` 做迭代。
 2. 當給定 `len` 和 `i`，我們會有唯一的 `j`，使得 `j = i + len - 1`。
 
+```js
+for (var len = 1; len < l - 1; len++) {
+  for (var i = 1; i + len - 1 < l - 1; i++) {
+    ......
+  }
+}
+```
 ---
 
 我們最後的程式碼因此是：
