@@ -82,7 +82,6 @@ for (var k = i; k <= j; k++) {
 
 ```js
 var maxCoins = function(nums) {
-  if (nums.length === 0) return 0
   nums = [1, ...nums, 1]
   const l = nums.length
   
