@@ -189,3 +189,6 @@ tags:
 ---
 
 **〔定義 2.3.16〕** $\mathfrak{A}$ 的擴展語言 $L(\mathfrak{A})$ 是從語言 $L$，以 $\mathfrak{A}$ 的類似型，加上所有的 $\mathfrak{A}$ 的元素的常數符號。我們將屬於 $a \in \mathfrak{A}$ 的常數符號以 $\overline{a}$ 表示。
+
+## 2.4 語義學
+
