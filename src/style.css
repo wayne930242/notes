@@ -318,9 +318,11 @@ a:focus {
   margin-bottom: var(--spacing-8);
 }
 
+/*
 .katex {
   font-size: inherit !important; 
 }
+*/
 
 /* Media queries */
 
