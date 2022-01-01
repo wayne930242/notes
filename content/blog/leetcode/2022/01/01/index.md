@@ -19,7 +19,7 @@ const l = nums.length
 
 為了方便討論，我們可以令對應到 `nums` 的矩陣 $\lang n_j \rang$ 為：
 
-> $\lang n_{j} \rang = \begin{bmatrix} &n_0(= 1) &n_1 &... &n_{l-2} &n_{l-1} (= 1) \end{bmatrix}.$
+> $\lang n_{j} \rang = \begin{bmatrix} n_0(= 1) &n_1 &... &n_{l-2} &n_{l-1} (= 1) \end{bmatrix}.$
 
 並且以 $n^i_j$ 來表示數列 $\lang n_i,n_{i+1}, ... ,n_{j} \rang$，$i\leq j$。
 
@@ -37,7 +37,7 @@ const dp = [...Array(l)].map(() => Array(l).fill(0))
 
 我們期待 $D$ 是一個上半矩陣（注意：我們不會計算出所有的量，這個矩陣可以當成我們的理論目標，但**不會是**我們最終計算出來的 `dp`）：
 
-> $D = \begin{bmatrix}&D_{0,0}(=n_0) &D_{0,1} &... &D_{0,l-1} \\&0 &D_{1,1}(=n_1) &... &D_{1,l-1} \\&0 &0 &... &D_{2,l-1} \\&... &... &... &... \\&0 &0 &... &D_{l-1,l-1}(=n_{l-1})\end{bmatrix}.$
+> $D = \begin{bmatrix}D_{0,0}(=n_0) &D_{0,1} &... &D_{0,l-1} \\0 &D_{1,1}(=n_1) &... &D_{1,l-1} \\0 &0 &... &D_{2,l-1} \\... &... &... &... \\0 &0 &... &D_{l-1,l-1}(=n_{l-1})\end{bmatrix}.$
 
 ---
 
