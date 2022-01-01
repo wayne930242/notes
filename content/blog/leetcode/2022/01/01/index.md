@@ -41,9 +41,9 @@ const dp = [...Array(l)].map(() => Array(l).fill(0))
 
 ---
 
-接下來就是要計算 $D^i_j$。
+接下來就是要計算 $D_{ij}$。
 
-因為 $D_ij$ 是唯一的，我們可以假設一個函數 $M: \{n^i_j\} \rightarrow \N$ 使得
+因為 $D_{ij}$ 是唯一的，我們可以假設一個函數 $M: \{n^i_j\} \rightarrow \N$ 使得
 
 > $M(n^i_j) = D_{ij}$。
 
