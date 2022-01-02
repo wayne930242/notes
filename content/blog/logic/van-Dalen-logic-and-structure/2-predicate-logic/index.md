@@ -192,3 +192,67 @@ tags:
 
 ## 2.4 語義學
 
+詮釋是一種關聯語法對象（符號串）與「實際上的」時態狀態的一種技藝。
+
+---
+
+一個例子：
+
+考慮結構 $\mathfrak{A} = (\Z , <,+,-,0)$。
+
+語言 $L$ 有以下字母：
+
+* 述詞符號：$\doteq$、$L$。
+* 函數符號：$P$、$M$。
+* 常數符號：$\overline{0}$。
+
+$L(\mathfrak{A})$ 還對所有的 $m \in\Z$ 都有常數符號 $\overline{m}$。
+
+$L(\mathfrak{A})$ 的封閉形式可以這樣詮釋：
+
+| $t$            | $t^\mathfrak{A}$                      |
+| -------------- | ------------------------------------- |
+| $\overline{m}$ | $m$                                   |
+| $P(t_1,t_2)$   | $t^\mathfrak{A}_1 + t^\mathfrak{A}_2$ |
+| $M(t)$         | $- t^\mathfrak{A}$                    |
+
+接著我們詮釋 $L(\mathfrak{A})$ 的語句，透過指派 $0$ 或 $1$ 之一的真值：
+
+$\begin{aligned}
+v(\bot) &= 0\\
+v(t \doteq s) &= \begin{cases} 1 \text{ 若 } t^\mathfrak{A} = s^\mathfrak{A} \\ 0 \text{ 其他} \end{cases} \\
+v(L(t,s)) &= \begin{cases} 1 \text{ 若 } t^\mathfrak{A} < s^\mathfrak{A} \\ 0 \text{ 其他} \end{cases} \\
+v(\phi\Box\psi) &\text{ 如 1.2.1} \\
+v(\neg\psi) &\text{ 如 1.2.1} \\
+v(\forall x\phi) &= \min\{v(\phi[\overline{n}/x]) | n\in \Z \} \\
+v(\exist x\phi) &= \max\{v(\phi[\overline{n}/x]) | n\in \Z \}
+\end{aligned}$
+
+> **說明**：
+> 
+> 1. $v$ 將由 $\mathfrak{A}$ 唯一決定，我們可以 $\llbracket \phi \rrbracket _\mathfrak{A}$ 代表 $v_\mathfrak{A}(\phi)$。
+> 2. 我們也可以將 $t^\mathfrak{A}$ 寫成 $\llbracket t \rrbracket _\mathfrak{A}$。 
+
+---
+
+給定類似型 $\lang r_1,...,r_n ; a_1,...,a_m ; |I| \rang$，考慮 $\mathfrak{A} = \lang A, R_1,...,R_n, F_1,...,F_m, \{ c_i | i\in I \} \rang$。
+
+相應的語言 $L$ 有述詞符號 $\overline{R}_1, ..., \overline{R}_n$，函數符號 $\overline{F}_1, ..., \overline{F}_m$，以及常數符號 $\overline{c}_i$。
+
+$L(\mathfrak{A})$ 還對所有 $a \in | \mathfrak{A}|$ 有常數符號 $\overline{a}$。
+
+**〔定義 2.4.1〕** $L(\mathfrak{A})$ 在 $\mathfrak{A}$ 的封閉形式的一個詮釋是一個對應 $(.)^\mathfrak{A}: TERM_c \rightarrow |\mathfrak{A}|$ 使得：
+
+1. $\begin{aligned}\overline{c_i}^\mathfrak{A}&= c_i &(\llbracket \overline{c_i} \rrbracket_\mathfrak{A})\\\overline{a}^\mathfrak{A}&= a &(\llbracket \overline{a} \rrbracket_\mathfrak{A})\end{aligned}$
+2. $(\overline{F}_i(t_1,...,t_p))^\mathfrak{A} = F_i(t_1^\mathfrak{A},...,t_p^\mathfrak{A}))$，當 $p = a_i$<br>$(\llbracket F_i(t_1,...t_p)\rrbracket_\mathfrak{A}) = \overline{F_i}(\llbracket t_1\rrbracket_\mathfrak{A},...,\llbracket t_p\rrbracket_\mathfrak{A})$
+
+---
+
+**〔定義 2.4.2〕** $L(\mathfrak{A})$ 在 $\mathfrak{A}$ 的語句 $\phi$ 的一個詮釋是一個對應 $\llbracket.\rrbracket_\mathfrak{A}: SENT \rightarrow \{ 0,1\}$ 使得：
+
+1. $\begin{aligned} \llbracket \bot \rrbracket_\mathfrak{A} &\coloneqq 0 \\ \llbracket \overline{R} \rrbracket_\mathfrak{A} &\coloneqq R \text{ (即 1 或 0)} \end{aligned}$
+2. $\begin{aligned} \llbracket \overline{R}_i(t_1,...,t
+_p) \rrbracket_\mathfrak{A} &\coloneqq \begin{cases} 1 \text{ 若} \lang t_1^\mathfrak{A} , ..., t_p^\mathfrak{A} \rang \in R_i \text{ 當} p = r_i \\ 0 \text{ 其他} \end{cases} \\ \llbracket t_1 = t_2 \rrbracket_\mathfrak{A} &\coloneqq \begin{cases} 1 \text{ 若} t_1^\mathfrak{A} = t_2^\mathfrak{A}\\ 0 \text{ 其他} \end{cases} \end{aligned}$
+1. $\begin{aligned}\llbracket \phi \wedge \psi\rrbracket_\mathfrak{A} &\coloneqq \min\{\llbracket\phi \rrbracket_\mathfrak{A}, \llbracket\psi \rrbracket_\mathfrak{A}\} \\ \llbracket \phi \vee \psi\rrbracket_\mathfrak{A} &\coloneqq \max\{\llbracket\phi \rrbracket_\mathfrak{A}, \llbracket\psi \rrbracket_\mathfrak{A}\} \\ \llbracket \phi \rightarrow \psi\rrbracket_\mathfrak{A} &\coloneqq \max\{1- \llbracket\phi \rrbracket_\mathfrak{A}, \llbracket\psi \rrbracket_\mathfrak{A}\} \\ \llbracket \phi \leftrightarrow \psi\rrbracket_\mathfrak{A} &\coloneqq 1 - | \llbracket\phi \rrbracket_\mathfrak{A} - \llbracket\psi \rrbracket_\mathfrak{A} | \\ \llbracket \neg \phi \rrbracket_\mathfrak{A} &\coloneqq 1- \llbracket\phi \rrbracket_\mathfrak{A} \end{aligned}$
+2. $\begin{aligned}\llbracket \forall x \phi \rrbracket_\mathfrak{A} &\coloneqq \min\{\llbracket\phi [\overline{a}/x] \rrbracket_\mathfrak{A} | a\in \mathfrak{A} \} \\ \llbracket \forall x \phi \rrbracket_\mathfrak{A} &\coloneqq \max \{\llbracket\phi [\overline{a}/x] \rrbracket_\mathfrak{A} | a\in \mathfrak{A} \} \end{aligned}$
+
