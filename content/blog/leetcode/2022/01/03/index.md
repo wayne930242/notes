@@ -3,7 +3,7 @@ title: Leetcode 練習：2022-01-03
 date: "2022-01-03"
 category: Codeing
 tags:
- - js
+ - ruby
  - leetcode
 ---
 
