@@ -21,7 +21,7 @@ tags:
 > **說明**：
 > 
 > 1. 慣例上，結構由歌德文字所標示：$\mathfrak{A}$、$\mathfrak{B}$、……、$\mathfrak{Z}$。
-> 2. 函數 $F_i$ 是全定義（total）的，亦即，由所有的自變數所定義的。
+> 2. 函數 $F_i$ 是全定義（total）的，亦即，由所有的自變元所定義的。
 
 ---
 
@@ -51,7 +51,7 @@ tags:
 1. 述詞符號：$P_1$、$P_2$、……、$P_n$、$\doteq$
 3. 函數符號：$f_1$、$f_2$、……、$f_m$
 5. 常數符號：$\overline{c}_i$，$i\in I$
-6. 變數：$x_0$、$x_1$、$x_2$、……
+6. 變元：$x_0$、$x_1$、$x_2$、……
 7. 連接詞：$\vee$、$\wedge$、$\rightarrow$、$\neg$、$\leftrightarrow$、$\bot$、$\forall$、$\exist$
 8. 輔助符號：$($、$)$
 
@@ -83,7 +83,7 @@ tags:
 
 ---
 
-**〔引理 2.3.3〕** 令 $A(t)$ 是句項的性質。若 $A(t)$ 在 $t$ 是常數或是變數時成立，並且 $A(t_1),A(t_2),...,A(t_n)\Rightarrow A(f(t_1),f(t_2),...,f(t_n))$ 對於所有函數符號 $f$，則 $A(t)$ 對所有 $t\in TERM$ 成立。
+**〔引理 2.3.3〕** 令 $A(t)$ 是句項的性質。若 $A(t)$ 在 $t$ 是常數或是變元時成立，並且 $A(t_1),A(t_2),...,A(t_n)\Rightarrow A(f(t_1),f(t_2),...,f(t_n))$ 對於所有函數符號 $f$，則 $A(t)$ 對所有 $t\in TERM$ 成立。
 
 ---
 
@@ -98,7 +98,7 @@ tags:
 
 **$TERM$ 上的遞迴定義**：令 $H_0: Var\cup Const \rightarrow A$，$H_i : A^{a_i} \rightarrow A$，存在唯一的對應 $H$ 使得
 
-* 對於所有常數或變數 $t$，$H(t) = H_0(t)$，
+* 對於所有常數或變元 $t$，$H(t) = H_0(t)$，
 * $H(f_i(t_1,...,t_{a_i})) = H_i(H(t_1),...,H(t_{a_i}))$。
 
 **$FORM$ 上的遞迴定義**：令
@@ -119,14 +119,14 @@ tags:
 
 ---
 
-**〔定義 2.3.6 〕** $t$ 的自由變數集合 $FV(t)$ 的定義為：
+**〔定義 2.3.6 〕** $t$ 的自由變元集合 $FV(t)$ 的定義為：
 
 * $\begin{aligned} FV(x_i) &\coloneqq \{x_i\} \text{，} \\ FV(\overline{c}_i) &\coloneqq \empty \text{，} \end{aligned}$
 * $FV(f(t_1,...,t_n))\coloneqq FV(t_1)\cup...\cup FV(t_n)$。
 
 ---
 
-**〔定義 2.3.7〕** $\phi$ 的自由變數集合 $FV(\phi)$ 的定義為：
+**〔定義 2.3.7〕** $\phi$ 的自由變元集合 $FV(\phi)$ 的定義為：
 
 * $\begin{aligned} FV(P(t_1,...,t_n)) &\coloneqq FV(t_1)\cup ... \cup F(t_n) \text{，} \\ FV(t_1 = t_2) &\coloneqq FV(t_1)\cup FV(t_2) \text{，}\\ FV(\bot) = FV(P) &\coloneqq \empty \text{，} \end{aligned}$
 * $\begin{aligned} FV(\phi\Box\psi) &\coloneqq FV(\phi) \cup FV(\psi) \text{，} \\ FV(\neg \phi) &\coloneqq FV(\phi) \text{，}\end{aligned}$
@@ -170,7 +170,7 @@ tags:
 
 ---
 
-**〔引理 2.3.13〕** $t$ 對在 $\phi$ 的 $x$ 是自由的 $\Leftrightarrow$ $t$ 的在 $\phi[t/x]$ 中的變數不在量詞的範圍內。
+**〔引理 2.3.13〕** $t$ 對在 $\phi$ 的 $x$ 是自由的 $\Leftrightarrow$ $t$ 的在 $\phi[t/x]$ 中的變元不在量詞的範圍內。
 
 > **證明**：對 $\phi$ 做歸納法。
 
@@ -184,7 +184,7 @@ tags:
 
 ---
 
-**〔引理 2.3.15〕** $\phi$ 對在 $\sigma$ 的 $\text{\textdollar}$ 是自由的 $\Leftrightarrow$ $\phi$ 的在 $\sigma[\phi/\text{\textdollar}]$ 中的變數不在量詞的範圍內。
+**〔引理 2.3.15〕** $\phi$ 對在 $\sigma$ 的 $\text{\textdollar}$ 是自由的 $\Leftrightarrow$ $\phi$ 的在 $\sigma[\phi/\text{\textdollar}]$ 中的變元不在量詞的範圍內。
 
 ---
 
@@ -255,3 +255,52 @@ $L(\mathfrak{A})$ 還對所有 $a \in | \mathfrak{A}|$ 有常數符號 $\overlin
 1. $\begin{aligned}\llbracket \phi \wedge \psi\rrbracket_\mathfrak{A} &\coloneqq \min\{\llbracket\phi \rrbracket_\mathfrak{A}, \llbracket\psi \rrbracket_\mathfrak{A}\} \\ \llbracket \phi \vee \psi\rrbracket_\mathfrak{A} &\coloneqq \max\{\llbracket\phi \rrbracket_\mathfrak{A}, \llbracket\psi \rrbracket_\mathfrak{A}\} \\ \llbracket \phi \rightarrow \psi\rrbracket_\mathfrak{A} &\coloneqq \max\{1- \llbracket\phi \rrbracket_\mathfrak{A}, \llbracket\psi \rrbracket_\mathfrak{A}\} \\ \llbracket \phi \leftrightarrow \psi\rrbracket_\mathfrak{A} &\coloneqq 1 - | \llbracket\phi \rrbracket_\mathfrak{A} - \llbracket\psi \rrbracket_\mathfrak{A} | \\ \llbracket \neg \phi \rrbracket_\mathfrak{A} &\coloneqq 1- \llbracket\phi \rrbracket_\mathfrak{A} \end{aligned}$
 2. $\begin{aligned}\llbracket \forall x \phi \rrbracket_\mathfrak{A} &\coloneqq \min\{\llbracket\phi [\overline{a}/x] \rrbracket_\mathfrak{A} | a\in \mathfrak{A} \} \\ \llbracket \forall x \phi \rrbracket_\mathfrak{A} &\coloneqq \max \{\llbracket\phi [\overline{a}/x] \rrbracket_\mathfrak{A} | a\in \mathfrak{A} \} \end{aligned}$
 
+> **說明**：除了賦值寫法以外，我們也可以這樣寫：
+> 
+> 1. 用 $\mathfrak{A}\vDash\phi$ 表示 $\llbracket\phi\rrbracket_\mathfrak{A}$`。
+> 2. 用 $\mathfrak{A} \vDash\phi$ 表示 $\phi$ 在 $\mathfrak{A}$ 中為真、有效。
+>
+> $\vDash$ 稱為滿足關係（satisfaction relation）。這個寫法也可以用在命題邏輯，用 $v\vDash\phi$ 表示 $\llbracket\phi\rrbracket_v = 1$。
+
+---
+
+**〔定義 2.4.3〕** 令 $FV(\phi) = \{ z_1,...,z_k \}$，則 $Cl(\phi) \coloneqq \forall z_1...z_k \phi$ 是 $\phi$ 的全稱閉包（universal closure）（假設變元 $z_i$ 的順序以某方式固定下來）。
+
+---
+
+**〔定義 2.4.4〕**
+
+1. $\mathfrak{A}\vDash\phi \Leftrightarrow \mathfrak{A} \vDash Cl(\phi)$，
+2. $\vDash\phi\Leftrightarrow\text{對於所有（合適類似型的） } \mathfrak{A} \text{，} \mathfrak{A} \vDash\phi$，
+3. $\mathfrak{A}\vDash\Gamma \Leftrightarrow\text{對於所有 } \psi\in\Gamma\text{，} \mathfrak{A}\vDash\phi$，
+4. $\Gamma\vDash\phi\Leftrightarrow (\mathfrak{A}\vDash\Gamma\Rightarrow\mathfrak{A}\vDash\phi)$，這裡的 $\Gamma\cup\{\phi\}$ 由語句組成。
+
+---
+
+**〔定義 2.4.4.5〕**
+
+1. 若 $\mathfrak{A}\vDash\sigma$，我們說 $\mathfrak{A}$ 是 $\sigma$ 的一個模型（model）。
+2. 若 $\mathfrak{A}\vDash\Gamma$，我們說 $\mathfrak{A}$ 是 $\Gamma$ 的一個模型。
+3. 若 $\vDash\phi$，我們說 $\phi$ 為真。
+4. 若 $\Gamma\vDash\phi$，亦即，$\phi$ 在 $\Gamma$ 的所有模型都成立，我們說 $\phi$ 是 $\Gamma$ 的語義學後果（semantic consequence）。
+5. 令 $\phi$ 是有自由變元 $FV(\phi) = \{z_1,...,z_k\}$ 的句式，若 $\mathfrak{A}\vDash\phi[\overline{a}_1,...,\overline{a}_k / z_1,...,z_k]$，我們說 $\phi$ 被 $a_1,...,a_k \in \mathfrak{A}$ 所滿足。
+6. 若存在能夠滿足 $\phi$ （$FV(\phi) = \{z_1,...,z_k\}$）的 $a_1,...,a_k\in\mathfrak{A}$，我們說 $\phi$ 在 $\mathfrak{A}$ 是可滿足的（satisfiable）。
+
+> **說明**：$\phi$ 是可滿足的 $\Leftrightarrow \mathfrak{A}\vDash\exist z_1...z_k\phi$。
+
+---
+
+**〔引理 2.4.5〕** 當限制在語句上，則
+
+1. $\mathfrak{A}\vDash\phi\wedge\psi\Leftrightarrow\mathfrak{A}\vDash\phi$ 且 $\mathfrak{A}\vDash\psi$，
+2. $\mathfrak{A}\vDash\phi\vee\psi\Leftrightarrow\mathfrak{A}\vDash\phi$ 或 $\mathfrak{A}\vDash\psi$，
+3. $\mathfrak{A}\vDash\neg\phi\Leftrightarrow\mathfrak{A}\nvDash\phi$，
+4. $\mathfrak{A}\vDash\phi\rightarrow\psi\Leftrightarrow(\mathfrak{A}\vDash\phi\Rightarrow\mathfrak{A}\vDash\phi)$，
+5. $\mathfrak{A}\vDash\phi\leftrightarrow\psi\Leftrightarrow(\mathfrak{A}\vDash\phi\Leftrightarrow\mathfrak{A}\vDash\phi)$，
+6. $\mathfrak{A}\vDash\forall x\phi\Leftrightarrow\mathfrak{A}\vDash\phi[\overline{a}/x]$，對於所有 $a\in|\mathfrak{A}|$，
+7. $\mathfrak{A}\vDash\exist x\phi\Leftrightarrow\mathfrak{A}\vDash\phi[\overline{a}/x]$，對於一些 $a\in|\mathfrak{A}|$，
+
+> **說明：**
+> 
+> 1. 0 元關係是 $A^\empty = \{\empty\}$ 的子集合，也就是 $\empty$ 或 $\{\empty\}$，序數的 $0$ 或 $1$。因此，$\llbracket\overline{P}\rrbracket_\mathfrak{A}=P$，$P$ 是真值。
+> 2. 考慮對應到 $A^k$ 的子集合的有 $k$ 個自由變元的句式 $\phi$ 以及 $FV(\phi)=\{z_1,...,z_k\}$，我們可以令 $\llbracket\phi\rrbracket_\mathfrak{A}=\{\lang a_1,...,a_k\rang | \mathfrak{A}\vDash \phi(\overline{a}_1,...,\overline{a}_k)\}$。
