@@ -304,3 +304,105 @@ $L(\mathfrak{A})$ 還對所有 $a \in | \mathfrak{A}|$ 有常數符號 $\overlin
 > 
 > 1. 0 元關係是 $A^\empty = \{\empty\}$ 的子集合，也就是 $\empty$ 或 $\{\empty\}$，序數的 $0$ 或 $1$。因此，$\llbracket\overline{P}\rrbracket_\mathfrak{A}=P$，$P$ 是真值。
 > 2. 考慮對應到 $A^k$ 的子集合的有 $k$ 個自由變元的句式 $\phi$ 以及 $FV(\phi)=\{z_1,...,z_k\}$，我們可以令 $\llbracket\phi\rrbracket_\mathfrak{A}=\{\lang a_1,...,a_k\rang | \mathfrak{A}\vDash \phi(\overline{a}_1,...,\overline{a}_k)\}$。
+
+## 2.5 述詞邏輯的一些簡單性質
+
+**〔定理 2.5.1〕**
+
+1. $\vDash\neg\forall x\phi\leftrightarrow\exist x\phi$，
+2. $\vDash\neg\exist x\phi\leftrightarrow\forall x\phi$，
+3. $\vDash\forall x\phi\leftrightarrow\neg\exist\neg x\phi$，
+4. $\vDash\exist x\phi\leftrightarrow\neg\forall \neg x\phi$。
+
+---
+
+**〔定理 2.5.2〕**
+
+1. $\vDash\forall x \forall y \phi\leftrightarrow\forall y\forall x \phi$，
+1. $\vDash\exist x \exist y \phi\leftrightarrow\exist y\exist x \phi$，
+1. $\vDash\forall x \phi\leftrightarrow \phi$，若 $x \notin FV(\phi)$，
+1. $\vDash\exist x \phi\leftrightarrow \phi$，若 $x \notin FV(\phi)$。
+
+---
+
+**〔定理 2.5.3〕**
+
+1. $\vDash \forall x(\phi \wedge \psi) \leftrightarrow \forall x\phi\wedge\forall x\phi$，
+1. $\vDash \exist x(\phi \vee \psi) \leftrightarrow \exist x\phi\vee\exist x\phi$，
+3. $\vDash\forall x(\phi(x)\vee\psi)\leftrightarrow\forall x\phi(x)\vee\psi$，若 $x \notin FV(\psi)$，
+4. $\vDash\exist x(\phi(x)\wedge\psi)\leftrightarrow\exist x\phi(x)\wedge\psi$，若 $x \notin FV(\psi)$。
+
+> **注意**：$\forall x(\phi(x)\vee\psi(x))\rightarrow\forall x\phi(x) \vee \forall x \phi(x)$ 和 $\exist x\phi(x)\wedge\exist x \psi(x)\rightarrow\exist x (\phi(x) \wedge \phi(x))$ 並不為真。
+
+---
+
+**〔引理 2.5.4〕**
+
+1. 令 $x$ 和 $y$ 是使得 $x\notin FV(\gamma)$ 的相異變元，則 $(t[s/x])[r/y] = (t[r/x])[s[r/y]/x]$，
+2. 令 $x$ 和 $y$ 是使得 $x\notin FV(\gamma)$ 的相異變元，則 $(\phi[t/x])[s/y] = (\phi[s/y])[t[s/y]/x]$，
+3. 令 $\psi$ 對在 $\phi$ 中的 $\text{\textdollar}$ 是自由的，並且 $t$ 對 $\phi$ 和 $\psi$ 中的 $x$ 是自由的，則 $(\phi[\psi/\text{\textdollar}])[t/x] = (\phi[t/x])[\psi [t/x]/\text{\textdollar}]$。
+4. 令 $\phi, \psi$ 對在 $\sigma$ 中的 $\text{\textdollar}_1, \text{\textdollar}_2$ 是自由的，令 $\psi$ 對在 $\phi$ 中的 $\text{\textdollar}_2$ 是自由的，並且 $\text{\textdollar}_1$ 未在 $\psi$ 中出現，則 $(\sigma[\phi/\text{\textdollar}_1])[\psi/\text{\textdollar}_2] = (\sigma[\psi/\text{\textdollar}_2])[\phi[\psi/\text{\textdollar}_2]/\text{\textdollar}_1]$。
+
+---
+
+**〔系理 2.5.5〕**
+
+1. 若 $z \notin FV(t)$，則 $(t[\overline{a}/x]) = (t[z/x[\overline{a}/z]$，
+2. 若 $z \notin FV(\phi)$ 且 $z$ 對在 $\phi$ 的 $x$ 是自由的，則 $(\phi[\overline{a}/x])= ([\phi[z/x])[\overline{a}/z]$。
+
+---
+
+**〔定理 2.5.6 約束變元的變換〕** 若 $x,y$ 對 $\phi$ 中的 $z$ 是自由的，並且 $x, y \notin FV(\phi)$，則 $\vDash \exist x\phi[x/z]\leftrightarrow\exist y\phi[y/z]$，且 $\vDash \forall x\phi[x/z]\leftrightarrow\forall y\phi[y/z]$。
+
+---
+
+**〔系理 2.5.7〕** 所有句式都等同於一個其中沒有變元既是自由的又是拘束的句式。
+
+---
+
+**〔定理 2.5.8 替代定理〕**
+
+1. $\vDash t_1=t_2\rightarrow s[t_1/x]=s[t_2/x]$，
+2. $\vDash t_1=t_2\rightarrow \phi[t_1/x]=\phi[t_2/x]$， 
+3. $\vDash (\phi\leftrightarrow\psi)\rightarrow(\sigma[\phi/\text{\textdollar}] \leftrightarrow\sigma[\psi/\text{\textdollar}] )$。
+
+---
+
+**〔系理 2.5.9〕** 
+
+1. $\llbracket s[t/x]\rrbracket = \llbracket s[\overline{\llbracket t \rrbracket} /x] \rrbracket$，
+1. $\llbracket \phi[t/x]\rrbracket = \llbracket \phi[\overline{\llbracket t \rrbracket} /x] \rrbracket$。
+
+---
+
+**〔定義 2.5.10〕** 一個句式 $\phi$ 符合前束標準形式（in prenex normal form），意思是 $\phi$ 是由一串量詞（可以為空）接著一個（無量詞的）開放句式組成。我們也稱這種 $\phi$ 是一個前束句式（prenex formula）。
+
+---
+
+**〔定理 2.5.11〕** 對於每個句式 $\phi$，都存在一個前束句式 $\psi$ 使得 $\vDash\phi\leftrightarrow\psi$。
+
+> **證明** 應用〔定理 2.5.6〕。
+
+---
+
+**〔定義 2.5.12〕** 若 $P$ 是一個一元述詞符號，則 $(\forall x\in P)\phi\coloneqq\forall x(P(x)\rightarrow\phi)$，$(\exist x\in P)\phi\coloneqq\exist x(P(x)\wedge\phi)$。
+
+---
+
+**｛定義 2.5.13〕** $Sub^+$ 和 $Sub^-$ 同時定義如下：
+
+* $\begin{aligned}Sub^+(\phi) &= \{\phi\} \\ Sub^-(\phi) &= \empty \end{aligned}$，對於原子 $\phi$
+* $\begin{aligned}Sub^+(\phi_1\Box\phi_2) &= Sub^+(\phi_1) \cup Sub^+(\phi_2) \cup \{\phi_1\Box\phi_2\} \\ Sub^-(\phi_1\Box\phi_2) &= Sub^-(\phi_1) \cup Sub^-(\phi_2) \end{aligned}$，對於 $\Box\in\{\wedge, \vee\}$
+* $\begin{aligned}Sub^+(\phi_1\rightarrow\phi_2) &= Sub^+(\phi_1) \cup Sub^-(\phi_2) \cup \{\phi_1\rightarrow\phi_2\} \\ Sub^-(\phi_1\rightarrow\phi_2) &= Sub^+(\phi_1) \cup Sub^-(\phi_2) \end{aligned}$
+* $\begin{aligned}Sub^+(Qx.\phi) &= Sub^+(\phi)\cup\{Qx.\phi\}\\ Sub^-(Qx.\phi) &= Sub^-(\phi) \end{aligned}$，對於 $Q\in\{\forall, \exist\}$。
+* 若 $\phi\in Sub^+(\psi)$，則我們說 $\phi$ 在 $\psi$ 中正出現（occurs positively）。
+* 若 $\phi\in Sub^-(\psi)$，則我們說 $\phi$ 在 $\psi$ 中負出現（occurs positively）。
+
+---
+
+**〔定理 2.5.14〕** 令 $\phi$（$\psi$）不在 $\sigma$ 中負出現（正出現），則：
+
+1. $\llbracket \phi_1 \rrbracket\leq \llbracket\phi_2\rrbracket\Rightarrow\llbracket\sigma[\phi_1/\phi]\rrbracket \leq\llbracket\sigma[\phi_2/\phi]\rrbracket$
+2. $\llbracket \psi_1 \rrbracket\leq \llbracket\psi_2\rrbracket\Rightarrow\llbracket\sigma[\psi_1/\psi]\rrbracket \geq\llbracket\sigma[\psi_2/\psi]\rrbracket$
+3. $\mathfrak{A}\vDash(\phi_1\rightarrow\phi_2)\rightarrow(\sigma[\phi_1/\phi]\rightarrow\sigma[\phi_2/\phi])$
+4. $\mathfrak{A}\vDash(\psi_1\rightarrow\psi_2)\rightarrow(\sigma[\psi_2/\psi]\rightarrow\sigma[\psi_1/\psi])$
