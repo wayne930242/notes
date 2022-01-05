@@ -338,7 +338,7 @@ $L(\mathfrak{A})$ 還對所有 $a \in | \mathfrak{A}|$ 有常數符號 $\overlin
 
 **〔引理 2.5.4〕**
 
-1. 令 $x$ 和 $y$ 是使得 $x\notin FV(\gamma)$ 的相異變元，則 $(t[s/x])[r/y] = (t[r/x])[s[r/y]/x]$，
+1. 令 $x$ 和 $y$ 是使得 $x\notin FV(\gamma)$ 的相異變元，則 $(t[s/x])[r/y] = (t[r/y])[s[r/y]/x]$，
 2. 令 $x$ 和 $y$ 是使得 $x\notin FV(\gamma)$ 的相異變元，則 $(\phi[t/x])[s/y] = (\phi[s/y])[t[s/y]/x]$，
 3. 令 $\psi$ 對在 $\phi$ 中的 $\text{\textdollar}$ 是自由的，並且 $t$ 對 $\phi$ 和 $\psi$ 中的 $x$ 是自由的，則 $(\phi[\psi/\text{\textdollar}])[t/x] = (\phi[t/x])[\psi [t/x]/\text{\textdollar}]$。
 4. 令 $\phi, \psi$ 對在 $\sigma$ 中的 $\text{\textdollar}_1, \text{\textdollar}_2$ 是自由的，令 $\psi$ 對在 $\phi$ 中的 $\text{\textdollar}_2$ 是自由的，並且 $\text{\textdollar}_1$ 未在 $\psi$ 中出現，則 $(\sigma[\phi/\text{\textdollar}_1])[\psi/\text{\textdollar}_2] = (\sigma[\psi/\text{\textdollar}_2])[\phi[\psi/\text{\textdollar}_2]/\text{\textdollar}_1]$。
@@ -406,3 +406,20 @@ $L(\mathfrak{A})$ 還對所有 $a \in | \mathfrak{A}|$ 有常數符號 $\overlin
 2. $\llbracket \psi_1 \rrbracket\leq \llbracket\psi_2\rrbracket\Rightarrow\llbracket\sigma[\psi_1/\psi]\rrbracket \geq\llbracket\sigma[\psi_2/\psi]\rrbracket$
 3. $\mathfrak{A}\vDash(\phi_1\rightarrow\phi_2)\rightarrow(\sigma[\phi_1/\phi]\rightarrow\sigma[\phi_2/\phi])$
 4. $\mathfrak{A}\vDash(\psi_1\rightarrow\psi_2)\rightarrow(\sigma[\psi_2/\psi]\rightarrow\sigma[\psi_1/\psi])$
+
+---
+
+## 2.6 同一關係
+
+同一關係的公理（除了 $I_4$ 是一個公理架構（axiom schema））：
+
+$\begin{aligned}
+I_1 \quad &\forall x(x=x)\\
+I_2 \quad &\forall xy (x=y\rightarrow y=x)\\
+I_3 \quad &\forall xyz(x=y\wedge x=z \rightarrow x=z)\\
+I_4 \quad 
+   &\forall x_1...x_ny_1...y_n(\displaystyle{\bigwedge_{i\leq n}x_i=y_i\rightarrow t(x_1,...,x_n) = t(y_1,...,y_n)}) \\
+   &\forall x_1...x_ny_1...y_n(\displaystyle{\bigwedge_{i\leq n}x_i=y_i\rightarrow (\phi(x_1,...,x_n) \rightarrow \phi(y_1,...,y_n))})
+\end{aligned}$
+
+> **說明：** $I_1$ 到 $I_3$ 指出同一關係是等同關係，而 $I_4$ 說明同一關係是其他所有（可定義的）關係的一個同合關係（congurence）。
