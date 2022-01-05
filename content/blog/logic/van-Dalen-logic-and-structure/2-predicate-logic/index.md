@@ -423,3 +423,21 @@ I_4 \quad
 \end{aligned}$
 
 > **說明：** $I_1$ 到 $I_3$ 指出同一關係是等同關係，而 $I_4$ 說明同一關係是其他所有（可定義的）關係的一個同合關係（congurence）。
+
+---
+
+## 2.7 範例
+
+* 同一關係的語言。類似型 $\lang-;-;0\rang$
+* 偏序的語言。類似型 $\lang2;-;0\rang$
+* 群的語言。類似型 $\lang-;2,1;1\rang$
+* 投影幾何平面語言。類似型 $\lang2;-;0\rang$
+  * $\Pi(x) \coloneqq \exist y(xIy)$（$x$ 是一個點）。$\Alpha(y) \coloneqq \exist x (xIy)$（$y$ 是一條線）。
+  * $\gamma_0: \forall x(\Pi(x)\leftrightarrow\neg\Alpha(x))$
+  * $\gamma_1: \forall xy(\Pi(x)\wedge\Pi(y)\rightarrow\exist z(xIz\wedge yIz))$
+  * $\gamma_2: \forall xy(\Alpha(u)\wedge\Alpha(v)\rightarrow\exist x(xIv\wedge yIu))$
+  * $\gamma_3: \forall xyuv(xIu \wedge yIu \wedge xIv \wedge yIu \rightarrow x=y \vee u=v)$
+  * $\gamma_4: \exist x_0x_1x_2x_3u_0u_1u_2u_3(\bigwedge x_iIu_i \wedge \displaystyle{\bigwedge_{j=i-1(mod3)}x_iIu_j} \wedge \bigwedge_{\substack{j\not ={i-1(mod3)} \\ i\not {=j}}} \neg x_iIu_j )$
+* 帶單元的環的語言。類似型 $\lang-;2,2,1;2\rang$
+* 代數的語言。類似型 $\lang -;2,2,1;1\rang$
+* （無向）圖的語言。類似型 $\lang2;-;0\rang$
