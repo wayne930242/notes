@@ -6,6 +6,7 @@ const clientID = process.env.GITALK_CLIENT_ID
 const clientSecret = process.env.GITALK_SECRET
 const owner = process.env.GITALK_OWNER
 const repo = process.env.GITALK_REPO
+const ga_id = process.env.GOOGLE_ANALYTICS_ID
 
 const gitalkConfig = {
   clientID,
@@ -78,7 +79,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_ID,
+        trackingId: ga_id,
       },
     },
     {
