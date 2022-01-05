@@ -2,6 +2,7 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+const siteUrl = process.env.BASE_URL
 const clientID = process.env.GITALK_CLIENT_ID
 const clientSecret = process.env.GITALK_SECRET
 const owner = process.env.GITALK_OWNER
@@ -24,7 +25,7 @@ module.exports = {
       summary: `who is thinking.`,
     },
     description: `A blog for Wei Hung, a learner.`,
-    siteUrl: `https://wayneh.tw/notes`,
+    siteUrl,
     social: {
       twitter: `wayne930242`,
     },
@@ -171,5 +172,6 @@ module.exports = {
         config: gitalkConfig
       }
     },
+    `gatsby-plugin-sitemap`,
   ],
 }
