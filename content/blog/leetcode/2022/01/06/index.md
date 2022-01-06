@@ -19,9 +19,9 @@ var carPooling = function(trips, capacity) {
         return false
       }
       
-      arr[i] = arr[i] !== undefined
-        ? arr[i] + numPassengers
-        : numPassengers
+    arr[i] = arr[i] !== undefined
+      ? arr[i] + numPassengers
+      : numPassengers
     }
   }
   return true
