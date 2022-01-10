@@ -293,7 +293,7 @@ $
 \end{aligned}
 $
 
----
+**矛盾規則**：
 
 $
 \begin{aligned}

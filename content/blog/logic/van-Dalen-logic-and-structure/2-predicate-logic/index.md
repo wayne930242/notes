@@ -257,7 +257,7 @@ $L(\mathfrak{A})$ 還對所有 $a \in | \mathfrak{A}|$ 有常數符號 $\overlin
 
 > **說明**：除了賦值寫法以外，我們也可以這樣寫：
 > 
-> 1. 用 $\mathfrak{A}\vDash\phi$ 表示 $\llbracket\phi\rrbracket_\mathfrak{A}$`。
+> 1. 用 $\mathfrak{A}\vDash\phi$ 表示 $\llbracket\phi\rrbracket_\mathfrak{A}$。
 > 2. 用 $\mathfrak{A} \vDash\phi$ 表示 $\phi$ 在 $\mathfrak{A}$ 中為真、有效。
 >
 > $\vDash$ 稱為滿足關係（satisfaction relation）。這個寫法也可以用在命題邏輯，用 $v\vDash\phi$ 表示 $\llbracket\phi\rrbracket_v = 1$。
@@ -373,6 +373,7 @@ $L(\mathfrak{A})$ 還對所有 $a \in | \mathfrak{A}|$ 有常數符號 $\overlin
 1. $\llbracket s[t/x]\rrbracket = \llbracket s[\overline{\llbracket t \rrbracket} /x] \rrbracket$，
 1. $\llbracket \phi[t/x]\rrbracket = \llbracket \phi[\overline{\llbracket t \rrbracket} /x] \rrbracket$。
 
+> **證明**：$\llbracket\overline{\llbracket t\rrbracket}\rrbracket = \llbracket t\rrbracket$，那麼 $\mathfrak{A}\vDash \overline{\llbracket t \rrbracket} = t$，接著應用替代定理。
 ---
 
 **〔定義 2.5.10〕** 一個句式 $\phi$ 符合前束標準形式（in prenex normal form），意思是 $\phi$ 是由一串量詞（可以為空）接著一個（無量詞的）開放句式組成。我們也稱這種 $\phi$ 是一個前束句式（prenex formula）。
@@ -381,7 +382,7 @@ $L(\mathfrak{A})$ 還對所有 $a \in | \mathfrak{A}|$ 有常數符號 $\overlin
 
 **〔定理 2.5.11〕** 對於每個句式 $\phi$，都存在一個前束句式 $\psi$ 使得 $\vDash\phi\leftrightarrow\psi$。
 
-> **證明** 應用〔定理 2.5.6〕。
+> **證明**：應用〔定理 2.5.6〕。
 
 ---
 
@@ -441,3 +442,132 @@ I_4 \quad
 * 帶單元的環的語言。類似型 $\lang-;2,2,1;2\rang$
 * 代數的語言。類似型 $\lang -;2,2,1;1\rang$
 * （無向）圖的語言。類似型 $\lang2;-;0\rang$
+
+## 2.8 自然演繹法
+
+### 演繹規則
+
+**引入規則**：
+
+$
+\begin{matrix}
+&\phi \quad \psi &\enspace _{(\wedge I)} \\\hline
+&\phi \wedge \psi 
+\end{matrix}
+$
+
+---
+
+$
+\begin{matrix}
+&[\phi]\\
+&{...}\\
+&\psi &\enspace _{(\rightarrow I)} \\ \hline
+&\phi \rightarrow \psi
+\end{matrix}
+$
+
+**移出規則**：
+
+$
+\begin{matrix}
+&\phi \wedge \psi &\enspace _{(\wedge E)} \\\hline
+&\phi 
+\end{matrix}
+$
+
+---
+
+$
+\begin{matrix}
+&\phi \wedge \psi &\enspace _{(\wedge E)} \\\hline
+&\psi 
+\end{matrix}
+$
+
+---
+
+$
+\begin{matrix}
+&\phi \quad \phi \rightarrow \psi &\enspace _{(\rightarrow E)} \\\hline
+&\psi 
+\end{matrix}
+$
+
+**矛盾規則**：
+
+$
+\begin{aligned}
+&\bot &\enspace _{(\bot)} \\\hline
+&\phi
+\end{aligned}
+$
+
+---
+
+$
+\begin{aligned}
+[\neg &\phi]\\
+&...\\
+&\bot &\enspace _{(RAA)} \\ \hline
+&\phi
+\end{aligned}
+$
+
+**全稱引入與移出規則**：（新增）
+
+$
+\begin{matrix}
+&\phi(x) &\enspace _{(\forall I)}\\\hline
+&\forall x \phi(x)
+\end{matrix}
+$
+
+$
+\begin{matrix}
+&\forall x\phi(x) &\enspace _{(\forall E)}\\\hline
+&\phi(t)
+\end{matrix}
+$
+
+---
+
+**〔定義 2.8.1 （Tarski）〕** 令 $\Gamma$ 是一個句式集合，$\{ x_{i_1}, x_{i_2},... \}=\bigcup\{FV(\phi)|\phi\in\Gamma\cup\{\sigma\}\}$。若 $\mathbf{a}$ 是 $|\mathfrak{A}|$ 元素的一個（可重複）序列 $(a_1, a_2, ...)$，若 $\Gamma(\mathbf{a})$ 是從 $\Gamma$ 透過將所有在 $\Gamma$ 中的句式 $x_i$ 替換為 $\overline{a}_j(j\leq 1)$ 而來（對於 $\Gamma =\{ \psi\}$，寫成 $\psi(\mathbf{a})$）。我們定義
+
+$
+\begin{aligned}
+(i)\quad &\mathfrak{A}\vDash\Gamma(\mathbf{a}) &\text{ 對於所有 }\phi\in\Gamma(\mathbf{a}) \text{，}\mathfrak{A}\vDash\psi \\
+(ii)\quad &\Gamma\vDash\sigma &\text{ 對於所有 }\mathfrak{A}, \mathbf{a}\text{，}\mathfrak{A}\vDash\Gamma(\mathbf{a})\Rightarrow\mathfrak{A}\vDash\sigma(\mathbf{a}) 
+\end{aligned}
+$
+
+---
+
+**〔引理 2.8.2 健全性〕** $\Gamma\vdash\sigma\Rightarrow\Gamma\vDash\sigma$。
+
+> **證明** 只有 $(\forall I)$ 和 $(\forall E)$ 規則的證明是新的。
+> 
+> #### $(\forall I)$
+> 
+> 歸納法假設：令 $D$ 是在 $\Gamma$ 中的假設，並且 $x$ 在 $\Gamma$ 中是非自由的（$x$ 是有被約束的），且 $\Gamma\vDash\phi(x)$。令 $\mathbf{a}=(a_1, \mathbf{a}')$。
+> 
+> 對於所有 $a_1$ 及 $\mathbf{a}'$，$\mathfrak{A}\vDash\Gamma(\mathbf{a}')\Rightarrow\mathfrak{A}\vDash\phi(\overline{a_1})(\mathbf{a}')$，那麼
+> 
+> 對於所有 $\mathbf{a}'$，$\mathfrak{A}\vDash\Gamma(\mathfrak{a}')\Rightarrow$ 對於所有 $a_1$，$(\mathfrak{A}\vDash(\phi(\overline{a}_1))(\mathbf{a}')$，那麼
+> 
+> 對於所有 $\mathbf{a}'$，$\mathfrak{A}\vDash\Gamma(\mathfrak{a}')\Rightarrow\mathfrak{A}\vDash(\forall x\phi(x))(\mathbf{a}')$。
+>
+> #### $(\forall E)$
+> 
+> 歸納法假設：令 $D$ 是在 $\Gamma$ 中的假設，且 $\Gamma\vDash\forall x\phi(x)$。
+> 
+> 令 $\mathfrak{A}\vDash\Gamma(\mathbf{a})$，那麼 $\mathfrak{A}\vDash\phi(t[\mathbf{a}/\mathbf{z}])(\mathbf{a})$，即 $\mathfrak{A}\vDash(\phi[\mathbf{a}/\mathbf{z}])[t[\mathbf{a}/\mathbf{z}]/x]$，那麼，根據〔引理 2.5.4〕，
+> 
+> $\mathfrak{A}\vDash(\phi[t/x])[\mathbf{a}/\mathbf{z}]$，即 $\mathfrak\vDash(\phi(t))(\mathbf{a})$。
+
+---
+
+**〔定理 2.8.3〕** 令 $x$ 是未出現在 $\Gamma$ 或 $\phi$ 之中的變數。
+
+1. $\Gamma\vdash\phi\Rightarrow\Gamma[x/c]\vdash\phi[x/c]$。
+2. 若 $c$ 並未出現在 $\Gamma$ 中，則 $\Gamma\vdash\phi(c)\Rightarrow\Gamma\vdash\forall x\phi(x)$。
