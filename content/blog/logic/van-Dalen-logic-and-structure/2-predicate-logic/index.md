@@ -561,7 +561,9 @@ $
 > 
 > 歸納法假設：令 $D$ 是在 $\Gamma$ 中的假設，且 $\Gamma\vDash\forall x\phi(x)$。
 > 
-> 令 $\mathfrak{A}\vDash\Gamma(\mathbf{a})$，那麼 $\mathfrak{A}\vDash\phi(t[\mathbf{a}/\mathbf{z}])(\mathbf{a})$，即 $\mathfrak{A}\vDash(\phi[\mathbf{a}/\mathbf{z}])[t[\mathbf{a}/\mathbf{z}]/x]$，那麼，根據〔引理 2.5.4〕，
+> 令 $\mathfrak{A}\vDash\Gamma(\mathbf{a})$，那麼 $\mathfrak{A}\vDash\phi(t[\mathbf{a}/\mathbf{z}])(\mathbf{a})$，$\mathbf{z}$ 是在 $\phi$ 中出現的變數的（有限）數列，那麼
+> 
+> $\mathfrak{A}\vDash(\phi[\mathbf{a}/\mathbf{z}])[t[\mathbf{a}/\mathbf{z}]/x]$，那麼，根據〔引理 2.5.4〕，
 > 
 > $\mathfrak{A}\vDash(\phi[t/x])[\mathbf{a}/\mathbf{z}]$，即 $\mathfrak\vDash(\phi(t))(\mathbf{a})$。
 
@@ -571,3 +573,28 @@ $
 
 1. $\Gamma\vdash\phi\Rightarrow\Gamma[x/c]\vdash\phi[x/c]$。
 2. 若 $c$ 並未出現在 $\Gamma$ 中，則 $\Gamma\vdash\phi(c)\Rightarrow\Gamma\vdash\forall x\phi(x)$。
+
+## 2.9 加入存在量詞
+
+我們將 $\exist x\phi(x)$ 作為 $\neg\forall x \neg \phi(x)$ 的縮寫引入。
+
+**〔引理 2.9.1〕** 
+
+1. $\phi(t)\vdash\exists x\phi(x)$，當 $t$ 對於在 $\phi$ 的 $x$ 是自由的，
+2. $\Gamma,\phi(x)\vdash\psi\Rightarrow\Gamma,\exist x\phi(x)\vdash\psi$，若 $x$ 在 $\psi$ 或任何 $\Gamma$ 中的句式是自由的。
+
+**存在引入與移出規則**：
+
+$
+\begin{matrix}
+&\phi(x) &\enspace _{(\exist I)}\\\hline
+&\exist x \phi(x)
+\end{matrix}
+$
+
+$
+\begin{matrix}
+&\begin{matrix} \\ \\ \exist x\phi(x) \end{matrix} \quad \begin{matrix} [\phi] \\ ... \\ \psi\end{matrix} &\begin{matrix} \\ \\ \enspace _{(\exist E)}\end{matrix}\\\hline
+&\psi
+\end{matrix}
+$

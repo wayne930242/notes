@@ -25,3 +25,19 @@ var carPooling = function(trips, capacity) {
   return true
 }
 ```
+
+```js
+var carPooling = function(trips, capacity) {
+  const arr = []
+  for (const [numPassengers, from, to] of trips) {
+    for (var i = from; i < to; i++) {
+      if ((arr[i] || 0) + numPassengers > capacity) {
+        return false
+      }
+      
+      arr[i] = (arr[i] || 0) + numPassengers
+    }
+  }
+  return true
+}
+```
