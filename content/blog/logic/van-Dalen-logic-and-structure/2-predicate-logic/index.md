@@ -598,3 +598,106 @@ $
 &\psi
 \end{matrix}
 $
+
+**〔定理 2.9.2〕** 考慮有所有語言的和所有連接詞規則的述詞邏輯，$\vdash\exist x\phi(x)\leftrightarrow\neg\forall x\neg\phi(x)$。
+
+---
+
+**總結** 對存在與全稱量詞規則的更精確的寫法，是透過取代來表述：
+
+$
+\begin{matrix}
+&\phi &\enspace _{(\forall I)}\\\hline
+&\forall x \phi
+\end{matrix}
+$
+
+$
+\begin{matrix}
+&\forall x\phi &\enspace _{(\forall E)}\\\hline
+&\phi[t/x]
+\end{matrix}
+$
+
+$
+\begin{matrix}
+&\phi [t/x] &\enspace _{(\exist I)}\\\hline
+&\exist x \phi
+\end{matrix}
+$
+
+$
+\begin{matrix}
+&\begin{matrix} \\ \\ \exist x\phi \end{matrix} \quad \begin{matrix} [\phi] \\ ... \\ \psi\end{matrix} &\begin{matrix} \\ \\ \enspace _{(\exist E)}\end{matrix}\\\hline
+&\psi
+\end{matrix}
+$
+
+## 2.10 自然演繹法與同一關係
+
+公理 $I_1 - I_4$ ：
+
+$\begin{aligned}
+I_1 \quad &\forall x(x=x)\\
+I_2 \quad &\forall xy (x=y\rightarrow y=x)\\
+I_3 \quad &\forall xyz(x=y\wedge x=z \rightarrow x=z)\\
+I_4 \quad 
+   &\forall x_1...x_ny_1...y_n(\displaystyle{\bigwedge_{i\leq n}x_i=y_i\rightarrow t(x_1,...,x_n) = t(y_1,...,y_n)}) \\
+   &\forall x_1...x_ny_1...y_n(\displaystyle{\bigwedge_{i\leq n}x_i=y_i\rightarrow (\phi(x_1,...,x_n) \rightarrow \phi(y_1,...,y_n))})
+\end{aligned}$
+
+對應的自然演繹法形式：
+
+$
+\begin{matrix}
+& &\enspace_{(RI_1)}\\\hline
+&x = x
+\end{matrix}
+$
+
+$
+\begin{matrix}
+&x=y &\enspace_{(RI_2)}\\\hline
+&y=x
+\end{matrix}
+$
+
+$
+\begin{matrix}
+&x=y \quad y=z &\enspace_{(RI_3)}\\\hline
+&x=z
+\end{matrix}
+$
+
+$
+\begin{matrix}
+&x_1=y_1,...,x_n=y_n  &\enspace_{(RI_4)}\\\hline
+&t(x_1,...,x_n) = t(x_1,...,x_n)
+\end{matrix}
+$
+
+$
+\begin{matrix}
+&x_1=y_1,...,x_n=y_n \quad \phi(x_1,...,x_n) &\enspace_{(RI_4)}\\\hline
+&\phi(y_1,...,y_n)
+\end{matrix}
+$
+
+---
+
+**〔引理 2.10.1〕** $\vdash I_i$，對於 $i=1,2,3,4$。
+
+---
+
+**〔引理 2.10.2〕** 令 $L$ 是類似型 $\lang r_1,...,r_n;a_1,...,a_m;k\rang$。給定下述兩條規則，$I_4$ 是可演繹的：
+
+1. $\begin{matrix} &x_1=y_1,...,x_{r_i}=y_{r_i} \quad P_1(x_1,...,x_{r_i}) &\enspace_{(i\leq n)}\\\hline &P_1(y_1,...,y_{r_i}) \end{matrix}$
+2. $\begin{matrix} &x_1=y_1,...,x_{a_j}=y_{a_j} &\enspace_{(j\leq m)}\\\hline &f_j(x_1,...,x_{a_j}) = f_j(y_1,...,y_{a_j}) \end{matrix}$
+
+> **證明：**
+> 
+> （$I_4-1$）歸納法，假設 $x=y\vdash s(x)=s(y)$，令 $t(x) = f(s(x))$，證明 $x=y\vdash t(x)=t(y)$。
+> 
+> （$I_4-2$）歸納法，證明 $\overrightarrow{x}=\overrightarrow{y}\Rightarrow\phi(\overrightarrow{x})=\phi(\overrightarrow{y})$。
+> 
+> 分成四個狀況討論：(1) $\phi$ 是原子、(2) $\phi = \sigma \rightarrow\pi$、(3) $\phi = \sigma\wedge\pi$、(4) $\phi = \forall x\psi(z,\overrightarrow{x})$。
