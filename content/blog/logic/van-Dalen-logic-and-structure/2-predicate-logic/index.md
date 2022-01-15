@@ -36,11 +36,11 @@ tags:
 > 
 > 這些結構裡面都包含一個特殊的二元關係：等同關係（同一關係）。由於所有數學結構都有等同關係，因此在類似型中會加以省略。因此，我們直接假定所有結構中都有等同關係。
 > 
-> 0 元關係是 $A^{\empty} = \{\empty\}$ 的子集合，$\{\empty\}$ 和 $\empty$，$0$ 和 $1$，可以看成真值，用來扮演命題詮釋的角色。
+> 0 元關係是 $A^{\empty} = \{\empty\}$（從 $\empty$ 到 $\empty$ 的所有函數的集合）的子集合，$\{\empty\}$ 和 $\empty$，序數的 $0$ 和 $1$，可以看成真值，用來扮演命題詮釋的角色。
 > 
-> 由於 0 元函數的定義域是單一的（從 $A^{\empty}$ 對應到 $A$），我們也可以允許用値域 $A$ 來定義它們。
+> 由於 0 元函數的定義域只有單一元素（$A^{\empty}$），也允許我們用値域 $A$ 來定義它們。
 >
-> $A$ 是 $\mathfrak{A}$ 的宇集合（universe），寫作 $A = |\mathfrak{A}|$。
+> $A$ 是 $\mathfrak{A}$ 的宇集（universe），我們寫作 $A = |\mathfrak{A}|$。
 
 ---
 
@@ -59,7 +59,7 @@ tags:
 
 **〔定義 2.3.1 句項〕** $TERM$ 是有以下性質的最小集合 $X$：
 
-1. $\overline{c}_i\in X (c\in I)$ 且 $x_i \in X (i\in N)$。
+1. $\overline{c}_i\in X (i\in I)$（$\overline{c}_i\in Const$）且 $x_i \in X (i\in N)$（$x_i\in Var$）。
 2. $t_1,...,t_{a_i} \in X \Rightarrow f_i(t_1,...,t_{a_i}) \in X (1 \leq i \leq m)$。
 
 ---
@@ -69,7 +69,7 @@ tags:
 1. 原子：
    * $\bot\in X$
    * $r_i=0\Rightarrow P_i\in X$
-   * $t_1,...,t_{r_i}\in TERM \Rightarrow P(t_1,...,t_{r_i})$
+   * $t_1,...,t_{r_i}\in TERM \Rightarrow P(t_1,...,t_{r_i}) \in X$
    * $t_1,t_2\in TERM \Rightarrow t_1=t_2\in X$
 2. $\phi,\psi\in X \Rightarrow (\phi\Box\psi)\in X$，這裡的 $\Box\in\{\wedge,\vee,\rightarrow,\leftrightarrow\}$
 3. $\phi\in X\Rightarrow(\neg\phi)\in X$
@@ -92,7 +92,9 @@ tags:
 * $A(\phi)$，當 $\phi$ 是原子，
 * $A(\phi), A(\psi) \Rightarrow \phi \Box \psi$，
 * $A(\phi) \Rightarrow A(\neg \phi)$，
-* $A(\phi) \Rightarrow$ 對於所有 $i$，$A((\forall x_i)\phi), A((\exists x_i) \phi)$，則 $A(\phi)$ 在所有 $\phi \in FORM$ 成立。
+* $A(\phi) \Rightarrow$ 對於所有 $i$，$A((\forall x_i)\phi), A((\exists x_i) \phi)$，
+
+則 $A(\phi)$ 在所有 $\phi \in FORM$ 成立。
 
 ---
 
@@ -134,7 +136,7 @@ tags:
 
 ---
 
-**〔定義 2.3.8〕** 若 $FV(t) = \empty$ 或 $FV(\phi) = \empty$，則 $t$ 或 $\phi$ 稱之為封閉的。封閉句式稱之為語句。沒有量詞的句式稱之為開放的。$TERM_c$ 表示封閉句項的集合；$FORM$ 表示語句的集合。
+**〔定義 2.3.8〕** 若 $FV(t) = \empty$ 或 $FV(\phi) = \empty$，則 $t$ 或 $\phi$ 稱之為封閉的（closed）。封閉句式（closed formula）稱之為語句（sentence）。沒有量詞的句式稱之為開放的（open）。$TERM_c$ 表示封閉句項的集合；$SENT$ 表示語句的集合。
 
 ---
 
@@ -147,7 +149,7 @@ tags:
 
 **〔定義 2.3.10〕** $\phi[t/x]$ 定義為：
 
-* $\begin{aligned} \bot[t/x] &\coloneqq \bot\text{，} \\ P[t/x] &\coloneqq P \text{ ，若 } P \text{是命題，} \\ P(t_1,...,t_p) &\coloneqq P(t_1[t/x],...,t_p(t/x)) \text{，} \end{aligned}$
+* $\begin{aligned} \bot[t/x] &\coloneqq \bot\text{，} \\ P[t/x] &\coloneqq P \text{ ，若 } P \text{是命題，} \\ P[t_1,...,t_p] &\coloneqq P(t_1[t/x],...,t_p(t/x)) \text{，} \end{aligned}$
 * $\begin{aligned} (\phi\Box\psi)[t/x] &\coloneqq \phi[t/x] \Box \psi[t/x] \text{，}\\ (\neg\phi)[t/x] &\coloneqq \neg\phi[t/x] \text{，}\end{aligned}$
 * $\begin{aligned}(\forall y \phi)[t/x] &\coloneqq \begin{cases} \forall y \phi [t/x] &\text{若} x\not\equiv y \\ \forall y\phi &\text{若} x\equiv y\end{cases} \\ (\exist y \phi)[t/x] &\coloneqq \begin{cases} \exist y \phi [t/x] &\text{若} x\not\equiv y \\ \exist y\phi &\text{若} x\equiv y\end{cases} \end{aligned}$
 
@@ -166,11 +168,11 @@ tags:
 
 1. $\phi$ 是原子，或
 2. $\phi\coloneqq\phi_1\Box\phi_2$（或 $\phi\coloneqq\neg\phi_1$），並且 $t$ 對在 $\phi_1$ 和 $\phi_2$ （或 $\phi_1$）的 $x$ 是自由的，或
-3. $\phi\coloneqq\forall y\psi$（或 $\phi\coloneqq\exist y\psi$），並且若 $x\in FV(\phi)$，則 $y\notin FV(t)$ 且 $t$ 對於在 $\phi$ 中的 $x$ 是自由的。
+3. $\phi\coloneqq\forall y\psi$（或 $\phi\coloneqq\exist y\psi$），並且若 $x\in FV(\phi)$，則 $y\notin FV(t)$ 且 $t$ 對於在 $\psi$ 中的 $x$ 是自由的。
 
 ---
 
-**〔引理 2.3.13〕** $t$ 對在 $\phi$ 的 $x$ 是自由的 $\Leftrightarrow$ $t$ 的在 $\phi[t/x]$ 中的變元不在量詞的範圍內。
+**〔引理 2.3.13〕** $t$ 對在 $\phi$ 的 $x$ 是自由的 $\Leftrightarrow$ $t$ 的在 $\phi[t/x]$ 中的變元不在量詞的範圍內，亦即，$t$ 在 $\phi[t/x]$ 中是自由的。
 
 > **證明**：對 $\phi$ 做歸納法。
 
@@ -184,19 +186,15 @@ tags:
 
 ---
 
-**〔引理 2.3.15〕** $\phi$ 對在 $\sigma$ 的 $\text{\textdollar}$ 是自由的 $\Leftrightarrow$ $\phi$ 的在 $\sigma[\phi/\text{\textdollar}]$ 中的變元不在量詞的範圍內。
+**〔引理 2.3.15〕** $\phi$ 對在 $\sigma$ 的 $\text{\textdollar}$ 是自由的 $\Leftrightarrow$ $\phi$ 的在 $\sigma[\phi/\text{\textdollar}]$ 中的變元不在量詞的範圍內，亦即，$\phi$ 的所有變元在 $\sigma[\phi/\text{\textdollar}]$ 中是自由的。
 
 ---
 
-**〔定義 2.3.16〕** $\mathfrak{A}$ 的擴展語言 $L(\mathfrak{A})$ 是從語言 $L$，以 $\mathfrak{A}$ 的類似型，加上所有的 $\mathfrak{A}$ 的元素的常數符號。我們將屬於 $a \in \mathfrak{A}$ 的常數符號以 $\overline{a}$ 表示。
+**〔定義 2.3.16〕** $\mathfrak{A}$ 的擴展語言 $L(\mathfrak{A})$ 是從語言 $L$，由 $\mathfrak{A}$ 的類似型，加上所有 $\mathfrak{A}$ 的常數符號元素。我們將常數符號（$a \in \mathfrak{A}$）以 $\overline{a}$ 表示。
 
 ## 2.4 語義學
 
-詮釋是一種關聯語法對象（符號串）與「實際上的」時態狀態的一種技藝。
-
----
-
-一個例子：
+**一個例子**
 
 考慮結構 $\mathfrak{A} = (\Z , <,+,-,0)$。
 
@@ -206,7 +204,7 @@ tags:
 * 函數符號：$P$、$M$。
 * 常數符號：$\overline{0}$。
 
-$L(\mathfrak{A})$ 還對所有的 $m \in\Z$ 都有常數符號 $\overline{m}$。
+$L(\mathfrak{A})$ 對所有的 $m \in\Z$ 有常數符號 $\overline{m}$。
 
 $L(\mathfrak{A})$ 的封閉形式可以這樣詮釋：
 
@@ -235,25 +233,27 @@ v(\exist x\phi) &= \max\{v(\phi[\overline{n}/x]) | n\in \Z \}
 
 ---
 
+**普遍化：**
+
 給定類似型 $\lang r_1,...,r_n ; a_1,...,a_m ; |I| \rang$，考慮 $\mathfrak{A} = \lang A, R_1,...,R_n, F_1,...,F_m, \{ c_i | i\in I \} \rang$。
 
 相應的語言 $L$ 有述詞符號 $\overline{R}_1, ..., \overline{R}_n$，函數符號 $\overline{F}_1, ..., \overline{F}_m$，以及常數符號 $\overline{c}_i$。
 
-$L(\mathfrak{A})$ 還對所有 $a \in | \mathfrak{A}|$ 有常數符號 $\overline{a}$。
+$L(\mathfrak{A})$ 對所有 $a \in | \mathfrak{A}|$ 有常數符號 $\overline{a}$。
 
 **〔定義 2.4.1〕** $L(\mathfrak{A})$ 在 $\mathfrak{A}$ 的封閉形式的一個詮釋是一個對應 $(.)^\mathfrak{A}: TERM_c \rightarrow |\mathfrak{A}|$ 使得：
 
 1. $\begin{aligned}\overline{c_i}^\mathfrak{A}&= c_i &(\llbracket \overline{c_i} \rrbracket_\mathfrak{A})\\\overline{a}^\mathfrak{A}&= a &(\llbracket \overline{a} \rrbracket_\mathfrak{A})\end{aligned}$
-2. $(\overline{F}_i(t_1,...,t_p))^\mathfrak{A} = F_i(t_1^\mathfrak{A},...,t_p^\mathfrak{A}))$，當 $p = a_i$<br>$(\llbracket F_i(t_1,...t_p)\rrbracket_\mathfrak{A}) = \overline{F_i}(\llbracket t_1\rrbracket_\mathfrak{A},...,\llbracket t_p\rrbracket_\mathfrak{A})$
+2. $\begin{aligned} &(\overline{F}_i(t_1,...,t_p))^\mathfrak{A} = F_i(t_1^\mathfrak{A},...,t_p^\mathfrak{A})) \text{，當 } p = a_i \\ &\text{（}\llbracket F_i(t_1,...t_p)\rrbracket_\mathfrak{A} = \overline{F_i}(\llbracket t_1\rrbracket_\mathfrak{A},...,\llbracket t_p\rrbracket_\mathfrak{A})\text{）}\end{aligned}$
 
 ---
 
 **〔定義 2.4.2〕** $L(\mathfrak{A})$ 在 $\mathfrak{A}$ 的語句 $\phi$ 的一個詮釋是一個對應 $\llbracket.\rrbracket_\mathfrak{A}: SENT \rightarrow \{ 0,1\}$ 使得：
 
 1. $\begin{aligned} \llbracket \bot \rrbracket_\mathfrak{A} &\coloneqq 0 \\ \llbracket \overline{R} \rrbracket_\mathfrak{A} &\coloneqq R \text{ (即 1 或 0)} \end{aligned}$
-2. $\begin{aligned} \llbracket \overline{R}_i(t_1,...,t_p) \rrbracket_\mathfrak{A} &\coloneqq \begin{cases} 1 \text{ 若} \lang t_1^\mathfrak{A} , ..., t_p^\mathfrak{A} \rang \in R_i \text{ 當} p = r_i \\ 0 \text{ 其他} \end{cases} \\ \llbracket t_1 = t_2 \rrbracket_\mathfrak{A} &\coloneqq \begin{cases} 1 \text{ 若} t_1^\mathfrak{A} = t_2^\mathfrak{A}\\ 0 \text{ 其他} \end{cases} \end{aligned}$
-1. $\begin{aligned}\llbracket \phi \wedge \psi\rrbracket_\mathfrak{A} &\coloneqq \min\{\llbracket\phi \rrbracket_\mathfrak{A}, \llbracket\psi \rrbracket_\mathfrak{A}\} \\ \llbracket \phi \vee \psi\rrbracket_\mathfrak{A} &\coloneqq \max\{\llbracket\phi \rrbracket_\mathfrak{A}, \llbracket\psi \rrbracket_\mathfrak{A}\} \\ \llbracket \phi \rightarrow \psi\rrbracket_\mathfrak{A} &\coloneqq \max\{1- \llbracket\phi \rrbracket_\mathfrak{A}, \llbracket\psi \rrbracket_\mathfrak{A}\} \\ \llbracket \phi \leftrightarrow \psi\rrbracket_\mathfrak{A} &\coloneqq 1 - | \llbracket\phi \rrbracket_\mathfrak{A} - \llbracket\psi \rrbracket_\mathfrak{A} | \\ \llbracket \neg \phi \rrbracket_\mathfrak{A} &\coloneqq 1- \llbracket\phi \rrbracket_\mathfrak{A} \end{aligned}$
-2. $\begin{aligned}\llbracket \forall x \phi \rrbracket_\mathfrak{A} &\coloneqq \min\{\llbracket\phi [\overline{a}/x] \rrbracket_\mathfrak{A} | a\in \mathfrak{A} \} \\ \llbracket \forall x \phi \rrbracket_\mathfrak{A} &\coloneqq \max \{\llbracket\phi [\overline{a}/x] \rrbracket_\mathfrak{A} | a\in \mathfrak{A} \} \end{aligned}$
+2. $\begin{aligned} \llbracket \overline{R}_i(t_1,...,t_p) \rrbracket_\mathfrak{A} &\coloneqq \begin{cases} 1 \text{ 若 } \lang t_1^\mathfrak{A} , ..., t_p^\mathfrak{A} \rang \in R_i \text{ ，當 } p = r_i \\ 0 \text{ 其他} \end{cases} \\ \llbracket t_1 = t_2 \rrbracket_\mathfrak{A} &\coloneqq \begin{cases} 1 \text{ 若 } t_1^\mathfrak{A} = t_2^\mathfrak{A}\\ 0 \text{ 其他} \end{cases} \end{aligned}$
+3. $\begin{aligned}\llbracket \phi \wedge \psi\rrbracket_\mathfrak{A} &\coloneqq \min\{\llbracket\phi \rrbracket_\mathfrak{A}, \llbracket\psi \rrbracket_\mathfrak{A}\} \\ \llbracket \phi \vee \psi\rrbracket_\mathfrak{A} &\coloneqq \max\{\llbracket\phi \rrbracket_\mathfrak{A}, \llbracket\psi \rrbracket_\mathfrak{A}\} \\ \llbracket \phi \rightarrow \psi\rrbracket_\mathfrak{A} &\coloneqq \max\{1- \llbracket\phi \rrbracket_\mathfrak{A}, \llbracket\psi \rrbracket_\mathfrak{A}\} \\ \llbracket \phi \leftrightarrow \psi\rrbracket_\mathfrak{A} &\coloneqq 1 - | \llbracket\phi \rrbracket_\mathfrak{A} - \llbracket\psi \rrbracket_\mathfrak{A} | \\ \llbracket \neg \phi \rrbracket_\mathfrak{A} &\coloneqq 1- \llbracket\phi \rrbracket_\mathfrak{A} \end{aligned}$
+4. $\begin{aligned}\llbracket \forall x \phi \rrbracket_\mathfrak{A} &\coloneqq \min\{\llbracket\phi [\overline{a}/x] \rrbracket_\mathfrak{A} | a\in \mathfrak{A} \} \\ \llbracket \forall x \phi \rrbracket_\mathfrak{A} &\coloneqq \max \{\llbracket\phi [\overline{a}/x] \rrbracket_\mathfrak{A} | a\in \mathfrak{A} \} \end{aligned}$
 
 > **說明**：除了賦值寫法以外，我們也可以這樣寫：
 > 
@@ -272,7 +272,7 @@ $L(\mathfrak{A})$ 還對所有 $a \in | \mathfrak{A}|$ 有常數符號 $\overlin
 
 1. $\mathfrak{A}\vDash\phi \Leftrightarrow \mathfrak{A} \vDash Cl(\phi)$，
 2. $\vDash\phi\Leftrightarrow\text{對於所有（合適類似型的） } \mathfrak{A} \text{，} \mathfrak{A} \vDash\phi$，
-3. $\mathfrak{A}\vDash\Gamma \Leftrightarrow\text{對於所有 } \psi\in\Gamma\text{，} \mathfrak{A}\vDash\phi$，
+3. $\mathfrak{A}\vDash\Gamma \Leftrightarrow\text{對於所有 } \psi\in\Gamma\text{，} \mathfrak{A}\vDash\psi$，
 4. $\Gamma\vDash\phi\Leftrightarrow (\mathfrak{A}\vDash\Gamma\Rightarrow\mathfrak{A}\vDash\phi)$，這裡的 $\Gamma\cup\{\phi\}$ 由語句組成。
 
 ---
@@ -309,8 +309,8 @@ $L(\mathfrak{A})$ 還對所有 $a \in | \mathfrak{A}|$ 有常數符號 $\overlin
 
 **〔定理 2.5.1〕**
 
-1. $\vDash\neg\forall x\phi\leftrightarrow\exist x\phi$，
-2. $\vDash\neg\exist x\phi\leftrightarrow\forall x\phi$，
+1. $\vDash\neg\forall x\phi\leftrightarrow\exist x\neg\phi$，
+2. $\vDash\neg\exist x\phi\leftrightarrow\forall x\neg\phi$，
 3. $\vDash\forall x\phi\leftrightarrow\neg\exist\neg x\phi$，
 4. $\vDash\exist x\phi\leftrightarrow\neg\forall \neg x\phi$。
 
@@ -338,21 +338,25 @@ $L(\mathfrak{A})$ 還對所有 $a \in | \mathfrak{A}|$ 有常數符號 $\overlin
 
 **〔引理 2.5.4〕**
 
-1. 令 $x$ 和 $y$ 是使得 $x\notin FV(\gamma)$ 的相異變元，則 $(t[s/x])[r/y] = (t[r/y])[s[r/y]/x]$，
-2. 令 $x$ 和 $y$ 是使得 $x\notin FV(\gamma)$ 的相異變元，則 $(\phi[t/x])[s/y] = (\phi[s/y])[t[s/y]/x]$，
+1. 令 $x$ 和 $y$ 是使得 $x\notin FV(r)$ 的相異變元，則 $(t[s/x])[r/y] = (t[r/y])[s[r/y]/x]$，
+2. 令 $x$ 和 $y$ 是使得 $x\notin FV(r)$ 的相異變元，則 $(\phi[t/x])[s/y] = (\phi[s/y])[t[s/y]/x]$，
 3. 令 $\psi$ 對在 $\phi$ 中的 $\text{\textdollar}$ 是自由的，並且 $t$ 對 $\phi$ 和 $\psi$ 中的 $x$ 是自由的，則 $(\phi[\psi/\text{\textdollar}])[t/x] = (\phi[t/x])[\psi [t/x]/\text{\textdollar}]$。
 4. 令 $\phi, \psi$ 對在 $\sigma$ 中的 $\text{\textdollar}_1, \text{\textdollar}_2$ 是自由的，令 $\psi$ 對在 $\phi$ 中的 $\text{\textdollar}_2$ 是自由的，並且 $\text{\textdollar}_1$ 未在 $\psi$ 中出現，則 $(\sigma[\phi/\text{\textdollar}_1])[\psi/\text{\textdollar}_2] = (\sigma[\psi/\text{\textdollar}_2])[\phi[\psi/\text{\textdollar}_2]/\text{\textdollar}_1]$。
+
+> **說明**：$x\notin FV(r) \Rightarrow r[s[r/y]/x] = r$。 
 
 ---
 
 **〔系理 2.5.5〕**
 
-1. 若 $z \notin FV(t)$，則 $(t[\overline{a}/x]) = (t[z/x[\overline{a}/z]$，
-2. 若 $z \notin FV(\phi)$ 且 $z$ 對在 $\phi$ 的 $x$ 是自由的，則 $(\phi[\overline{a}/x])= ([\phi[z/x])[\overline{a}/z]$。
+1. 若 $z \notin FV(t)$，則 $t[\overline{a}/x] = (t[z/x])[\overline{a}/z]$，
+2. 若 $z \notin FV(\phi)$ 且 $z$ 對在 $\phi$ 的 $x$ 是自由的，則 $(\phi[\overline{a}/x])= (\phi[z/x])[\overline{a}/z]$。
 
 ---
 
 **〔定理 2.5.6 約束變元的變換〕** 若 $x,y$ 對 $\phi$ 中的 $z$ 是自由的，並且 $x, y \notin FV(\phi)$，則 $\vDash \exist x\phi[x/z]\leftrightarrow\exist y\phi[y/z]$，且 $\vDash \forall x\phi[x/z]\leftrightarrow\forall y\phi[y/z]$。
+
+> **證明**：對於任意符合條件的 $x$ 與 $y$，$\mathfrak{A}\vDash\exists x\phi [x/z]\Leftrightarrow$ 對於某 $a$，使得 $\mathfrak{A}\vDash(\phi[x/z])[\overline{a}/x]\Leftrightarrow$ 對於某些 $a$，使得 $\mathfrak{A}\vDash\phi[\overline{a}/z] \Leftrightarrow$ 對於某些 $a$，使得 $\mathfrak{A}\vDash(\phi[y/z])[\overline{a}/y]\Leftrightarrow\mathfrak{A}\vDash\exist y\phi[y/z]$。
 
 ---
 
@@ -376,13 +380,13 @@ $L(\mathfrak{A})$ 還對所有 $a \in | \mathfrak{A}|$ 有常數符號 $\overlin
 > **證明**：$\llbracket\overline{\llbracket t\rrbracket}\rrbracket = \llbracket t\rrbracket$，那麼 $\mathfrak{A}\vDash \overline{\llbracket t \rrbracket} = t$，接著應用替代定理。
 ---
 
-**〔定義 2.5.10〕** 一個句式 $\phi$ 符合前束標準形式（in prenex normal form），意思是 $\phi$ 是由一串量詞（可以為空）接著一個（無量詞的）開放句式組成。我們也稱這種 $\phi$ 是一個前束句式（prenex formula）。
+**〔定義 2.5.10〕** 一個句式 $\phi$ 符合前束標準形式（in prenex normal form），意思是 $\phi$ 是由一串量詞（可以為空）接著一個（無量詞的）開放句式組成。我們也稱這種 $\phi$ 為前束句式（prenex formula）。
 
 ---
 
-**〔定理 2.5.11〕** 對於每個句式 $\phi$，都存在一個前束句式 $\psi$ 使得 $\vDash\phi\leftrightarrow\psi$。
+**〔定理 2.5.11〕** 對於每個句式 $\phi$，都存在前束句式 $\psi$ 使得 $\vDash\phi\leftrightarrow\psi$。
 
-> **證明**：應用〔定理 2.5.6〕。
+> **證明**：應用〔定理 2.5.6〕，我們可以為所有分別約束的變元挑選相異的變元符號。
 
 ---
 
@@ -394,7 +398,7 @@ $L(\mathfrak{A})$ 還對所有 $a \in | \mathfrak{A}|$ 有常數符號 $\overlin
 
 * $\begin{aligned}Sub^+(\phi) &= \{\phi\} \\ Sub^-(\phi) &= \empty \end{aligned}$，對於原子 $\phi$
 * $\begin{aligned}Sub^+(\phi_1\Box\phi_2) &= Sub^+(\phi_1) \cup Sub^+(\phi_2) \cup \{\phi_1\Box\phi_2\} \\ Sub^-(\phi_1\Box\phi_2) &= Sub^-(\phi_1) \cup Sub^-(\phi_2) \end{aligned}$，對於 $\Box\in\{\wedge, \vee\}$
-* $\begin{aligned}Sub^+(\phi_1\rightarrow\phi_2) &= Sub^+(\phi_1) \cup Sub^-(\phi_2) \cup \{\phi_1\rightarrow\phi_2\} \\ Sub^-(\phi_1\rightarrow\phi_2) &= Sub^+(\phi_1) \cup Sub^-(\phi_2) \end{aligned}$
+* $\begin{aligned}Sub^+(\phi_1\rightarrow\phi_2) &= Sub^-(\phi_1) \cup Sub^+(\phi_2) \cup \{\phi_1\rightarrow\phi_2\} \\ Sub^-(\phi_1\rightarrow\phi_2) &= Sub^+(\phi_1) \cup Sub^-(\phi_2) \end{aligned}$
 * $\begin{aligned}Sub^+(Qx.\phi) &= Sub^+(\phi)\cup\{Qx.\phi\}\\ Sub^-(Qx.\phi) &= Sub^-(\phi) \end{aligned}$，對於 $Q\in\{\forall, \exist\}$。
 * 若 $\phi\in Sub^+(\psi)$，則我們說 $\phi$ 在 $\psi$ 中正出現（occurs positively）。
 * 若 $\phi\in Sub^-(\psi)$，則我們說 $\phi$ 在 $\psi$ 中負出現（occurs positively）。
@@ -417,13 +421,13 @@ $L(\mathfrak{A})$ 還對所有 $a \in | \mathfrak{A}|$ 有常數符號 $\overlin
 $\begin{aligned}
 I_1 \quad &\forall x(x=x)\\
 I_2 \quad &\forall xy (x=y\rightarrow y=x)\\
-I_3 \quad &\forall xyz(x=y\wedge x=z \rightarrow x=z)\\
+I_3 \quad &\forall xyz(x=y\wedge y=z \rightarrow x=z)\\
 I_4 \quad 
    &\forall x_1...x_ny_1...y_n(\displaystyle{\bigwedge_{i\leq n}x_i=y_i\rightarrow t(x_1,...,x_n) = t(y_1,...,y_n)}) \\
    &\forall x_1...x_ny_1...y_n(\displaystyle{\bigwedge_{i\leq n}x_i=y_i\rightarrow (\phi(x_1,...,x_n) \rightarrow \phi(y_1,...,y_n))})
 \end{aligned}$
 
-> **說明：** $I_1$ 到 $I_3$ 指出同一關係是等同關係，而 $I_4$ 說明同一關係是其他所有（可定義的）關係的一個同合關係（congurence）。
+> **說明：** $I_1$ 到 $I_3$ 指出同一關係是等同關係，而 $I_4$ 說明同一關係是其他所有（可定義的）關係的一個同餘關係（congurence）。
 
 ---
 
@@ -436,8 +440,8 @@ I_4 \quad
   * $\Pi(x) \coloneqq \exist y(xIy)$（$x$ 是一個點）。$\Alpha(y) \coloneqq \exist x (xIy)$（$y$ 是一條線）。
   * $\gamma_0: \forall x(\Pi(x)\leftrightarrow\neg\Alpha(x))$
   * $\gamma_1: \forall xy(\Pi(x)\wedge\Pi(y)\rightarrow\exist z(xIz\wedge yIz))$
-  * $\gamma_2: \forall xy(\Alpha(u)\wedge\Alpha(v)\rightarrow\exist x(xIv\wedge yIu))$
-  * $\gamma_3: \forall xyuv(xIu \wedge yIu \wedge xIv \wedge yIu \rightarrow x=y \vee u=v)$
+  * $\gamma_2: \forall xy(\Alpha(u)\wedge\Alpha(v)\rightarrow\exist x(xIv\wedge xIu))$
+  * $\gamma_3: \forall xyuv(xIu \wedge yIu \wedge xIv \wedge yIv \rightarrow x=y \vee u=v)$
   * $\gamma_4: \exist x_0x_1x_2x_3u_0u_1u_2u_3(\bigwedge x_iIu_i \wedge \displaystyle{\bigwedge_{j=i-1(mod3)}x_iIu_j} \wedge \bigwedge_{\substack{j\not ={i-1(mod3)} \\ i\not {=j}}} \neg x_iIu_j )$
 * 帶單元的環的語言。類似型 $\lang-;2,2,1;2\rang$
 * 代數的語言。類似型 $\lang -;2,2,1;1\rang$
@@ -532,12 +536,21 @@ $
 
 ---
 
-**〔定義 2.8.1 （Tarski）〕** 令 $\Gamma$ 是一個句式集合，$\{ x_{i_1}, x_{i_2},... \}=\bigcup\{FV(\phi)|\phi\in\Gamma\cup\{\sigma\}\}$。若 $\mathbf{a}$ 是 $|\mathfrak{A}|$ 元素的一個（可重複）序列 $(a_1, a_2, ...)$，若 $\Gamma(\mathbf{a})$ 是從 $\Gamma$ 透過將所有在 $\Gamma$ 中的句式 $x_i$ 替換為 $\overline{a}_j(j\leq 1)$ 而來（對於 $\Gamma =\{ \psi\}$，寫成 $\psi(\mathbf{a})$）。我們定義
+**〔定義 2.8.1 （Tarski）〕** 令 $\Gamma$ 是一個句式集合，$\sigma$ 是一個句式，$\{ x_{i_1}, x_{i_2},... \}=\bigcup\{FV(\phi)|\phi\in\Gamma\cup\{\sigma\}\}$。若 $\mathbf{a}$ 是 $|\mathfrak{A}|$ 元素的（可重複）序列 $(a_1, a_2, ...)$，若 $\Gamma(\mathbf{a})$ 是從 $\Gamma$ 透過將所有在 $\Gamma$ 中的句式 $x_i$ 替換為 $\overline{a}_j(j\leq 1)$ 而來（對於 $\Gamma =\{ \psi\}$，寫成 $\psi(\mathbf{a})$）。我們定義：
 
 $
 \begin{aligned}
 (i)\quad &\mathfrak{A}\vDash\Gamma(\mathbf{a}) &\text{ 對於所有 }\phi\in\Gamma(\mathbf{a}) \text{，}\mathfrak{A}\vDash\psi \\
 (ii)\quad &\Gamma\vDash\sigma &\text{ 對於所有 }\mathfrak{A}, \mathbf{a}\text{，}\mathfrak{A}\vDash\Gamma(\mathbf{a})\Rightarrow\mathfrak{A}\vDash\sigma(\mathbf{a}) 
+\end{aligned}
+$
+
+限制在語句的情況下，這個定義可以簡化為：
+
+$
+\begin{aligned}
+(i)\quad &\Gamma\vDash\sigma &\text{ 對於所有 }\mathfrak{A}\text{，}\mathfrak{A}\vDash\Gamma\Rightarrow\mathfrak{A}\vDash\sigma\\
+(ii)\quad &\vDash \sigma &\text{ 對於 }\Gamma = \empty
 \end{aligned}
 $
 
