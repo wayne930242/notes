@@ -68,9 +68,7 @@ tags:
 
 表示成有向無環圖，讓獨立的機率關係可以看得更清楚：
 
-* d-分隔判準：給定 DAG，如果路徑 $p$ 被頂點集合 $Z$ 所阻擋（d-分隔），若且唯若，
-  1. 存在 $m$ 屬於 $Z$ 使得，$p$ 包含鏈 $i\rightarrow m\rightarrow j$，或分叉 $i\leftarrow m \rightarrow j$。
-  2. $p$ 的所有對撞（collider） $i\rightarrow m \leftarrow j$ 中的 $m$ 和 $m$ 的後代節點都不在 $Z$ 裡面。
+* d-分隔判準：給定 DAG，如果路徑 $p$ 被頂點集合 $Z$ 所阻擋（d-分隔），若且唯若：<br/> (1) 存在 $m$ 屬於 $Z$ 使得，$p$ 包含鏈 $i\rightarrow m\rightarrow j$，或分叉 $i\leftarrow m \rightarrow j$。<br/> (2) $p$ 的所有對撞（collider） $i\rightarrow m \leftarrow j$ 中的 $m$ 和 $m$ 的後代節點都不在 $Z$ 裡面。
 * 如果節點 $X$ 到節點 $Y$ 的所有路徑都被 $Z$ 集合阻擋，那麼 $Z$ d-分隔了 $X$ 到 $Y$。
 * d-分隔的機率蘊含：若 $X$ 到 $Y$ 被 $Z$ 在 DAG $G$ 所 #d# 隔離，則對於所有與 $G$ 相容的機率分配 $P$，$X$ 在 $Z$ 條件下都獨立於 $Y$，即 $P(x,y|Z)=P(x|Z)P(y|Z)$。
 
@@ -243,4 +241,4 @@ Pearl 發展了一個叫作行動計算（do-calculus）的公理系統，能夠
 但如果我們沒有完整的結構等式模型，我們就得不到反事實條件句的機率，只能以上下限來進行估計，有兩種相對的估計方式（可以使用 Pearl 的 twin network）：
 
 1. 假如前件為假，後件因此不發生的機率有多少？Pearl 將這稱作「必然機率（probability of necessity）」。
-2. 假如前件為真，後件因此發生的機率有多少？Pearl 稱作「充分機率」：
+2. 假如前件為真，後件因此發生的機率有多少？Pearl 稱作「充分機率」。
