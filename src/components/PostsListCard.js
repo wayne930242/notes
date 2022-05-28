@@ -14,7 +14,7 @@ const PostsListCard = ({ frontmatter, fields, excerpt }) => {
             __html: frontmatter.description || excerpt,
           }}
         />
-        <Link to={`/${fields.slug}/`} className="btn btn-primary">
+        <Link to={`${fields.slug}`} className="btn btn-primary">
           Read More &rarr;
         </Link>
       </Card.Body>

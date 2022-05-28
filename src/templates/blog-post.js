@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
+import { Card } from "react-bootstrap"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -27,6 +28,38 @@ const BlogPostTemplate = ({ data, location }) => {
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
+
+          <Card className="mb-4">
+            <Card.Body>
+              <p>
+                分類：
+                {post.fields.category && (
+                  <Link to={`/category/${post.fields.category}`}>
+                    {post.fields.category}
+                  </Link>
+                )}
+              </p>
+
+              {post.fields.tags
+                ? (
+                  <ul>
+                    {post.fields.tags.map(tag => (
+                      <li>
+                        <Link
+                          to={`/tags/${tag}`}
+                          className="p-2 m-1"
+                        >
+                          {tag}
+                        </Link>
+                      </li>
+                    ))
+                    }
+                  </ul>
+                )
+                : null
+              }
+            </Card.Body>
+          </Card>
         </header>
         <section
           dangerouslySetInnerHTML={{ __html: post.html }}
@@ -55,23 +88,6 @@ const BlogPostTemplate = ({ data, location }) => {
               </Link>
             )}
           </li>
-          <li>
-            {post.fields.category && (
-              <Link to={`/category/${post.fields.category}`}>
-                {post.fields.category}
-              </Link>
-            )}
-          </li>
-          {post.fields.tags && (
-            post.fields.tags.map(tag => (
-              <Link
-                to={`/tags/${tag}`}
-                className="badge badge-primary p-2 m-1"
-              >
-                tag: {tag}
-              </Link>
-            ))
-          )}
           <li>
             {next && (
               <Link to={next.fields.slug} rel="next">
