@@ -1,5 +1,6 @@
-import * as React from "react"
+import React, { useEffect, useState } from "react"
 import { Link, graphql } from "gatsby"
+import ReactPaginate from 'react-paginate'
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -11,8 +12,15 @@ const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
-  const LIMIT = 10
-  const [pagination, setPagination] = React.useState(0)
+  const itemsPerPage = 10
+
+  const [pageCount, setPageCount] = useState(0)
+  const [itemOffset, setItemOffset] = useState(0)
+
+  useEffect(() => {
+    setPageCount(Math.ceil(posts.length / itemsPerPage))
+  }, [itemOffset, itemsPerPage])
+
 
   if (posts.length === 0) {
     return (
@@ -28,13 +36,18 @@ const BlogIndex = ({ data, location }) => {
     )
   }
 
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % posts.length
+    setItemOffset(newOffset)
+  }
+
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
       <Bio />
       <ol style={{ listStyle: `none` }}>
         {posts
-          .slice(pagination * LIMIT + 1, (pagination + 1) * LIMIT)
+          .slice(itemOffset, itemOffset + itemsPerPage)
           .map(post => {
             const title = post.frontmatter.title || post.fields.slug
 
@@ -66,6 +79,26 @@ const BlogIndex = ({ data, location }) => {
             )
           })}
       </ol>
+
+      <ReactPaginate
+        containerClassName="pagination justify-content-center mt-5"
+        pageClassName="page-item"
+        pageLinkClassName="page-link"
+        previousClassName="page-item"
+        previousLinkClassName="page-link"
+        nextClassName="page-item"
+        nextLinkClassName="page-link"
+        breakLabel="..."
+        breakClassName="page-item"
+        breakLinkClassName="page-link"
+
+        nextLabel=">"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={5}
+        pageCount={pageCount}
+        previousLabel="<"
+        renderOnZeroPageCount={null}
+      />
     </Layout>
   )
 }
